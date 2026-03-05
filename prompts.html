@@ -90,36 +90,104 @@
     </header>
 
     <main>
-        <section class="page-header">
+        <section class="page-header prompts-hero">
             <div class="container">
-                <h1>Prompt Library</h1>
-                <p>A curated collection of battle-tested AI prompts for public sector challenges.</p>
+                <h1>Public Sector Prompt Library</h1>
+                <p>Practitioner-tested AI prompts developed by Fels MPA students — free to use, adapt, and share.</p>
+                <div class="hero-stats">
+                    <div class="hero-stat">
+                        <span class="hero-stat-number" id="stat-prompts">—</span>
+                        <span class="hero-stat-label">Prompts</span>
+                    </div>
+                    <div class="hero-stat">
+                        <span class="hero-stat-number" id="stat-categories">—</span>
+                        <span class="hero-stat-label">Categories</span>
+                    </div>
+                    <div class="hero-stat">
+                        <span class="hero-stat-number" id="stat-contributors">—</span>
+                        <span class="hero-stat-label">Contributors</span>
+                    </div>
+                </div>
             </div>
         </section>
 
-        <section>
+        <!-- Filter bar -->
+        <div class="filter-bar" role="search" aria-label="Filter prompts">
+            <div class="filter-inner">
+                <div class="search-wrap">
+                    <svg viewBox="0 0 16 16" aria-hidden="true">
+                        <path
+                            d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.099zm-5.242 1.156a5.5 5.5 0 1 1 0-11 5.5 5.5 0 0 1 0 11z" />
+                    </svg>
+                    <input type="search" id="search-input" placeholder="Search prompts…" aria-label="Search prompts">
+                </div>
+
+                <select id="filter-category" class="filter-select" aria-label="Filter by category">
+                    <option value="">All Categories</option>
+                </select>
+
+                <select id="filter-tool" class="filter-select" aria-label="Filter by AI tool">
+                    <option value="">All Tools</option>
+                </select>
+
+                <select id="filter-contributor" class="filter-select" aria-label="Filter by contributor">
+                    <option value="">All Contributors</option>
+                </select>
+
+                <span class="filter-count" aria-live="polite" id="filter-count"></span>
+            </div>
+        </div>
+
+        <!-- Active filter tags -->
+        <div class="active-filters" id="active-filters" aria-label="Active filters"></div>
+
+        <!-- Prompt grid -->
+        <section class="prompts-section">
             <div class="container">
-                <div style="text-align: center; max-width: 800px; margin: 0 auto;">
-                    <p style="color: var(--text-muted); font-size: 1.1rem; line-height: 1.8;">Our library provides
-                        structured, high-context prompts designed for policy analysis, communications, and
-                        administrative tasks. These prompts are shared to help public servants understand how to better
-                        interact with LLMs.</p>
-                </div>
-
-                <div class="filter-container">
-                    <button class="filter-btn active" data-filter="all">All</button>
-                    <button class="filter-btn" data-filter="Transportation">Transportation</button>
-                    <button class="filter-btn" data-filter="Communications">Communications</button>
-                    <button class="filter-btn" data-filter="Education & Training">Education</button>
-                    <button class="filter-btn" data-filter="Finance & Procurement">Finance</button>
-                    <button class="filter-btn" data-filter="Public Health">Public Health</button>
-                </div>
-
-                <div id="prompt-grid" class="grid" style="grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));">
-                    <!-- Prompts injected by main.js -->
+                <div class="prompts-grid" id="prompts-grid" role="list">
+                    <div class="empty-state">
+                        <p>Loading prompts…</p>
+                    </div>
                 </div>
             </div>
         </section>
+
+        <!-- Modal -->
+        <div class="modal-overlay" id="modal-overlay" role="dialog" aria-modal="true"
+            aria-labelledby="modal-title-text">
+            <div class="modal" id="modal">
+                <div class="modal-header">
+                    <div class="modal-category" id="modal-category"></div>
+                    <h2 class="modal-title" id="modal-title-text" style="font-family: inherit; font-size: 1.5rem;"></h2>
+                    <button class="modal-close" id="modal-close" aria-label="Close prompt detail">✕</button>
+                </div>
+                <div class="modal-body">
+                    <div class="modal-meta" id="modal-meta"></div>
+
+                    <div class="modal-section-label">Description</div>
+                    <p class="modal-desc" id="modal-desc" style="margin-bottom: 20px;"></p>
+
+                    <div class="modal-tags" id="modal-tags" style="margin-bottom: 25px;"></div>
+
+                    <div class="modal-section-label">Full Prompt</div>
+                    <pre class="prompt-text-box" id="modal-prompt-text"></pre>
+                    <button class="copy-btn" id="copy-btn" aria-label="Copy prompt to clipboard">
+                        <svg viewBox="0 0 16 16" aria-hidden="true">
+                            <path
+                                d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z" />
+                            <path
+                                d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z" />
+                        </svg>
+                        Copy Prompt
+                    </button>
+
+                    <div id="modal-analysis-wrap" style="display:none; margin-top: 30px;">
+                        <div class="modal-section-label">Critical Analysis</div>
+                        <div class="modal-analysis" id="modal-analysis"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </main>
 
     <footer>
@@ -197,6 +265,206 @@
     </footer>
 
     <script src="main.js"></script>
+    <script>
+        // --- Prompt Library Logic ---
+        let allPrompts = [];
+        let filters = {
+            search: '',
+            category: '',
+            tool: '',
+            contributor: ''
+        };
+
+        // DOM Elements
+        const promptsGrid = document.getElementById('prompts-grid');
+        const filterCount = document.getElementById('filter-count');
+        const activeFiltersContainer = document.getElementById('active-filters');
+        const searchInput = document.getElementById('search-input');
+        const categorySelect = document.getElementById('filter-category');
+        const toolSelect = document.getElementById('filter-tool');
+        const contributorSelect = document.getElementById('filter-contributor');
+
+        // Modal Elements
+        const modalOverlay = document.getElementById('modal-overlay');
+        const modalClose = document.getElementById('modal-close');
+        const copyBtn = document.getElementById('copy-btn');
+
+        async function loadPrompts() {
+            try {
+                const response = await fetch('data/prompts.json');
+                const data = await response.json();
+                allPrompts = data.prompts;
+
+                initFilters();
+                updateStats();
+                render();
+            } catch (error) {
+                console.error('Error loading prompts:', error);
+                promptsGrid.innerHTML = '<div class="empty-state"><p>Error loading prompts. Please try again later.</p></div>';
+            }
+        }
+
+        function initFilters() {
+            const categories = [...new Set(allPrompts.map(p => p.category))].sort();
+            const tools = [...new Set(allPrompts.flatMap(p => p.tools_tested || []))].sort();
+            const contributors = [...new Set(allPrompts.map(p => `${p.submitted_by_first} ${p.submitted_by_last}`))].sort();
+
+            categories.forEach(cat => {
+                const opt = document.createElement('option');
+                opt.value = cat;
+                opt.textContent = cat;
+                categorySelect.appendChild(opt);
+            });
+
+            tools.forEach(tool => {
+                const opt = document.createElement('option');
+                opt.value = tool;
+                opt.textContent = tool;
+                toolSelect.appendChild(opt);
+            });
+
+            contributors.forEach(con => {
+                const opt = document.createElement('option');
+                opt.value = con;
+                opt.textContent = con;
+                contributorSelect.appendChild(opt);
+            });
+        }
+
+        function updateStats() {
+            document.getElementById('stat-prompts').textContent = allPrompts.length;
+            document.getElementById('stat-categories').textContent = [...new Set(allPrompts.map(p => p.category))].length;
+            document.getElementById('stat-contributors').textContent = [...new Set(allPrompts.map(p => `${p.submitted_by_first} ${p.submitted_by_last}`))].length;
+        }
+
+        function getFiltered() {
+            return allPrompts.filter(prompt => {
+                const name = `${prompt.submitted_by_first} ${prompt.submitted_by_last}`;
+                const matchesSearch = !filters.search ||
+                    prompt.title.toLowerCase().includes(filters.search.toLowerCase()) ||
+                    prompt.description.toLowerCase().includes(filters.search.toLowerCase()) ||
+                    prompt.tags.some(t => t.toLowerCase().includes(filters.search.toLowerCase()));
+
+                const matchesCategory = !filters.category || prompt.category === filters.category;
+                const matchesTool = !filters.tool || (prompt.tools_tested && prompt.tools_tested.includes(filters.tool));
+                const matchesContributor = !filters.contributor || name === filters.contributor;
+
+                return matchesSearch && matchesCategory && matchesTool && matchesContributor;
+            });
+        }
+
+        function render() {
+            const filtered = getFiltered();
+            promptsGrid.innerHTML = '';
+
+            if (filtered.length === 0) {
+                promptsGrid.innerHTML = '<div class="empty-state"><p>No prompts match your current filters.</p></div>';
+            } else {
+                filtered.forEach(prompt => {
+                    const card = document.createElement('div');
+                    card.className = 'prompt-card';
+                    card.innerHTML = `
+                        <div class="card-category">${prompt.category}</div>
+                        <h3 class="card-title">${prompt.title}</h3>
+                        <p class="card-desc">${prompt.description}</p>
+                        <div class="card-tags">
+                            ${prompt.tags.slice(0, 3).map(tag => `<span class="card-tag">${tag}</span>`).join('')}
+                            ${prompt.tags.length > 3 ? `<span class="card-tag">+${prompt.tags.length - 3}</span>` : ''}
+                        </div>
+                        <div class="card-footer">
+                            <span class="card-author">By ${prompt.submitted_by_first} ${prompt.submitted_by_last}</span>
+                            <div class="card-tools">
+                                ${(prompt.tools_tested || []).slice(0, 2).map(t => `<span class="tool-badge">${t}</span>`).join('')}
+                            </div>
+                        </div>
+                        <div class="card-cta">
+                            View Prompt
+                            <svg viewBox="0 0 16 16"><path d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/></svg>
+                        </div>
+                    `;
+                    card.onclick = () => openModal(prompt);
+                    promptsGrid.appendChild(card);
+                });
+            }
+
+            filterCount.textContent = `${filtered.length} prompt${filtered.length === 1 ? '' : 's'} found`;
+            renderActiveFilters();
+        }
+
+        function renderActiveFilters() {
+            activeFiltersContainer.innerHTML = '';
+            Object.entries(filters).forEach(([key, value]) => {
+                if (value && key !== 'search') {
+                    const tag = document.createElement('div');
+                    tag.className = 'active-filter-tag';
+                    tag.innerHTML = `
+                        ${value}
+                        <button onclick="clearFilter('${key}')" aria-label="Remove filter">&times;</button>
+                    `;
+                    activeFiltersContainer.appendChild(tag);
+                }
+            });
+        }
+
+        function clearFilter(key) {
+            filters[key] = '';
+            const el = document.getElementById(`filter-${key}`);
+            if (el) el.value = '';
+            render();
+        }
+
+        function openModal(prompt) {
+            document.getElementById('modal-category').textContent = prompt.category;
+            document.getElementById('modal-title-text').textContent = prompt.title;
+            document.getElementById('modal-desc').textContent = prompt.description;
+            document.getElementById('modal-prompt-text').textContent = prompt.prompt_text;
+
+            const meta = document.getElementById('modal-meta');
+            meta.innerHTML = `
+                <div><strong>Contributor:</strong><br>${prompt.submitted_by_first} ${prompt.submitted_by_last}</div>
+                <div><strong>Course:</strong><br>${prompt.course || 'N/A'}</div>
+                <div><strong>Tools Tested:</strong><br>${(prompt.tools_tested || []).join(', ')}</div>
+                <div><strong>Output Format:</strong><br>${prompt.output_format || 'N/A'}</div>
+            `;
+
+            const tagsContainer = document.getElementById('modal-tags');
+            tagsContainer.innerHTML = prompt.tags.map(t => `<span class="card-tag">${t}</span>`).join(' ');
+
+            const analysisWrap = document.getElementById('modal-analysis-wrap');
+            if (prompt.critical_analysis) {
+                analysisWrap.style.display = 'block';
+                document.getElementById('modal-analysis').textContent = prompt.critical_analysis;
+            } else {
+                analysisWrap.style.display = 'none';
+            }
+
+            modalOverlay.classList.add('is-open');
+            document.body.style.overflow = 'hidden';
+
+            copyBtn.onclick = () => {
+                navigator.clipboard.writeText(prompt.prompt_text);
+                const originalText = copyBtn.innerHTML;
+                copyBtn.innerHTML = 'Copied!';
+                setTimeout(() => copyBtn.innerHTML = originalText, 2000);
+            };
+        }
+
+        function closeModal() {
+            modalOverlay.classList.remove('is-open');
+            document.body.style.overflow = '';
+        }
+
+        // Event Listeners
+        searchInput.oninput = (e) => { filters.search = e.target.value; render(); };
+        categorySelect.onchange = (e) => { filters.category = e.target.value; render(); };
+        toolSelect.onchange = (e) => { filters.tool = e.target.value; render(); };
+        contributorSelect.onchange = (e) => { filters.contributor = e.target.value; render(); };
+        modalClose.onclick = closeModal;
+        modalOverlay.onclick = (e) => { if (e.target === modalOverlay) closeModal(); };
+
+        // Initialize
+        loadPrompts();
+    </script>
 </body>
 
 </html>
