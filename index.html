@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fels Public AI Lab | University of Pennsylvania</title>
+    <meta name="description"
+        content="Applying artificial intelligence to strengthen public institutions and civic life at the Fels Institute of Government.">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .hero {
+            position: relative;
+            height: 90vh;
+            min-height: 600px;
+            display: flex;
+            align-items: center;
+            color: var(--white);
+            background: linear-gradient(rgba(1, 31, 91, 0.7), rgba(1, 31, 91, 0.7)), url('Photos/Hero%20Image.jpg') center/cover no-repeat;
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            color: var(--white);
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .what-we-do {
+            background-color: var(--light-gray);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .section-header .divider {
+            width: 80px;
+            height: 4px;
+            background: var(--penn-red);
+            margin: 0 auto;
+        }
+
+        .featured-project {
+            background: var(--penn-blue);
+            color: var(--white);
+        }
+
+        .featured-project h2 {
+            color: var(--white);
+        }
+
+        .project-highlight {
+            display: flex;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .project-highlight img {
+            border-radius: 8px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            flex: 1;
+        }
+
+        .project-info {
+            flex: 1;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 3rem;
+            }
+
+            .hero p {
+                font-size: 1.2rem;
+            }
+
+            .project-highlight {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+
+<body class="fade-in">
+
+    <header>
+        <div class="container">
+            <nav>
+                <a href="index.html" class="logo">
+                    <img src="Photos/Fels_Logo_White_Background.png" alt="Fels Logo">
+                    <span>Fels Public AI Lab</span>
+                </a>
+                <div class="nav-links">
+                    <a href="index.html" class="active">Home</a>
+                    <a href="projects.html">Projects</a>
+                    <a href="prompts.html">Prompt Library</a>
+                    <a href="team.html">Team</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+                <div class="menu-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1>Fels Public AI Lab</h1>
+                    <p>Applying artificial intelligence to strengthen public institutions and civic life.</p>
+                    <a href="projects.html" class="btn">Explore Our Projects</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="what-we-do">
+            <div class="container">
+                <div class="section-header">
+                    <h2>What We Do</h2>
+                    <div class="divider"></div>
+                </div>
+                <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
+                    <div class="card">
+                        <div style="color: var(--penn-red); font-size: 2rem; margin-bottom: 20px;">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z">
+                                </path>
+                            </svg>
+                        </div>
+                        <h3>Research</h3>
+                        <p>Investigating the intersection of policy and technology to understand how AI can better serve
+                            the public good while maintaining institutional integrity.</p>
+                    </div>
+                    <div class="card">
+                        <div style="color: var(--penn-red); font-size: 2rem; margin-bottom: 20px;">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+                                <path d="M2 17l10 5 10-5"></path>
+                                <path d="M2 12l10 5 10-5"></path>
+                            </svg>
+                        </div>
+                        <h3>Teaching</h3>
+                        <p>Educating the next generation of public leaders on the ethical implementation and strategic
+                            oversight of artificial intelligence in government.</p>
+                    </div>
+                    <div class="card">
+                        <div style="color: var(--penn-red); font-size: 2rem; margin-bottom: 20px;">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                                <line x1="8" y1="21" x2="16" y2="21"></line>
+                                <line x1="12" y1="17" x2="12" y2="21"></line>
+                            </svg>
+                        </div>
+                        <h3>Civic Tech</h3>
+                        <p>Building open-source tools and agents that solve real-world problems for municipalities and
+                            public sector organizations.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="featured-project">
+            <div class="container">
+                <div class="project-highlight"
+                    style="display: block; text-align: center; max-width: 800px; margin: 0 auto;">
+                    <div class="project-info">
+                        <span class="card-tag" style="background: var(--penn-red); color: white;">Featured
+                            Project</span>
+                        <h2>Philadelphia Property Tax MCP</h2>
+                        <p style="margin-bottom: 30px; opacity: 0.9;">A Model Context Protocol (MCP) server that
+                            provides real-time access to Philadelphia's the OPA property data, enabling AI agents to
+                            analyze assessment history and tax balance data for civic advocacy.</p>
+                        <a href="projects.html" class="btn btn-outline"
+                            style="border-color: var(--white); color: var(--white);">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <div class="section-header">
+                    <h2>From the Prompt Library</h2>
+                    <div class="divider"></div>
+                </div>
+                <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));">
+                    <div class="card">
+                        <span class="card-tag">Policy Analysis</span>
+                        <h3>Transportation Policy Brief Generator</h3>
+                        <p>Produces a decision-oriented policy brief summarizing a transportation issue, evaluating
+                            evidence, and recommending action for agency leadership.</p>
+                        <a href="prompts.html"
+                            style="color: var(--penn-red); font-weight: 600; margin-top: 15px; display: inline-block;">View
+                            Prompt &rarr;</a>
+                    </div>
+                    <div class="card">
+                        <span class="card-tag">Education</span>
+                        <h3>Socratic Lesson Plan Generator</h3>
+                        <p>Produces a discussion-forward 75-minute lesson plan for teaching philosophy and ethical
+                            reasoning in public sector leadership.</p>
+                        <a href="prompts.html"
+                            style="color: var(--penn-red); font-weight: 600; margin-top: 15px; display: inline-block;">View
+                            Prompt &rarr;</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-cols">
+                <!-- Col 1: Logo & Address -->
+                <div class="footer-col">
+                    <div class="footer-logo">
+                        <a href="index.html"><img src="Photos/Fels_Logo_Blue_Background.png"
+                                alt="Fels Institute of Government"></a>
+                    </div>
+                    <div class="footer-address">
+                        <p><strong>The Fels Institute of Government</strong><br>
+                            3814 Walnut St.<br>
+                            Philadelphia, PA 19104<br>
+                            (215) 898-9471<br>
+                            <a href="mailto:publicailab@sas.upenn.edu">publicailab@sas.upenn.edu</a>
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Col 2: Navigation -->
+                <div class="footer-nav-col">
+                    <h2>Main Navigation</h2>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="projects.html">Projects</a></li>
+                        <li><a href="prompts.html">Prompt Library</a></li>
+                        <li><a href="team.html">Team</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 3: Links & Social -->
+                <div class="footer-col">
+                    <a href="contact.html" class="white-link-box">Apply Now</a>
+                    <a href="contact.html" class="white-link-box">Request Info</a>
+                    <a href="contact.html" class="white-link-box">Contact Us</a>
+                    <div class="footer-social-row">
+                        <a href="https://www.facebook.com/PennFels" target="_blank" aria-label="Facebook">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="white">
+                                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                            </svg>
+                        </a>
+                        <a href="https://www.linkedin.com/school/fels-institute" target="_blank" aria-label="LinkedIn">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="white">
+                                <path
+                                    d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z">
+                                </path>
+                                <rect x="2" y="9" width="4" height="12"></rect>
+                                <circle cx="4" cy="4" r="2"></circle>
+                            </svg>
+                        </a>
+                        <a href="https://www.instagram.com/pennfels/" target="_blank" aria-label="Instagram">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Col 4: University Links -->
+                <div class="footer-col bottom-utility">
+                    <p><a href="https://www.lps.upenn.edu/">College of Liberal and Professional Studies</a></p>
+                    <p><a href="https://www.sas.upenn.edu/">School of Arts & Sciences</a></p>
+                    <p><a href="https://www.upenn.edu/">University of Pennsylvania</a></p>
+                    <p class="copyright-footer">© <span id="year"></span> Fels Institute of Government at the University
+                        of Pennsylvania</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+
+</html>

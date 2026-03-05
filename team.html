@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team | Fels Public AI Lab</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .page-header {
+            background-color: var(--light-gray);
+            padding: 80px 0;
+            text-align: center;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .team-card {
+            text-align: center;
+            padding: 30px;
+        }
+
+        .team-photo {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 25px;
+            border: 4px solid var(--light-gray);
+            transition: border-color 0.3s;
+        }
+
+        .team-card:hover .team-photo {
+            border-color: var(--penn-red);
+        }
+
+        .team-card h3 {
+            margin-bottom: 5px;
+            color: var(--penn-blue);
+        }
+
+        .team-title {
+            color: var(--penn-red);
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .team-bio {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        .join-us {
+            background: var(--penn-blue);
+            color: var(--white);
+            text-align: center;
+            padding: 80px 0;
+            margin-top: 80px;
+        }
+
+        .join-us h2 {
+            color: var(--white);
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+
+<body class="fade-in">
+
+    <header>
+        <div class="container">
+            <nav>
+                <a href="index.html" class="logo">
+                    <img src="Photos/Fels_Logo_White_Background.png" alt="Fels Logo">
+                    <span>Fels Public AI Lab</span>
+                </a>
+                <div class="nav-links">
+                    <a href="index.html">Home</a>
+                    <a href="projects.html">Projects</a>
+                    <a href="prompts.html">Prompt Library</a>
+                    <a href="team.html" class="active">Team</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+                <div class="menu-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1 style="font-size: 3rem; color: var(--penn-blue);">Our Team</h1>
+                <p style="max-width: 700px; margin: 20px auto 0; font-size: 1.2rem; color: var(--text-muted);">A
+                    multidisciplinary group of researchers, practitioners, and students at the University of
+                    Pennsylvania.</p>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <div class="team-grid">
+                    <!-- Dylan Hayden -->
+                    <div class="team-card card">
+                        <img src="Photos/Dylan_Hayden.JPG" alt="Dylan Hayden" class="team-photo">
+                        <h3>Dylan Hayden</h3>
+                        <span class="team-title">Director, Fels Public AI Lab</span>
+                        <span class="team-title" style="margin-top: -15px;">Associate Professor of Practice, Fels
+                            Institute of Government</span>
+                        <p class="team-bio">Leading the lab's mission to bridge the gap between AI development and
+                            public administration. His work focuses on the ethical implementation of LLMs in municipal
+                            governance and data-driven civic tech.</p>
+                    </div>
+
+                    <!-- Placeholder for other team members or students -->
+                    <div class="team-card card">
+                        <div class="team-photo"
+                            style="background: var(--light-gray); display: flex; align-items: center; justify-content: center; font-size: 4rem; color: #ccc;">
+                            <svg width="100" height="100" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1">
+                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="12" cy="7" r="4"></circle>
+                            </svg>
+                        </div>
+                        <h3>Collaborative Spirit</h3>
+                        <span class="team-title">Research Fellows & Students</span>
+                        <p class="team-bio">Our lab is powered by graduate students from the Fels Master of Public
+                            Administration program and researchers across Penn who contribute to public-facing projects
+                            and the prompt library.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="join-us">
+            <div class="container">
+                <h2>Join Our Work</h2>
+                <p style="margin-bottom: 30px; opacity: 0.9; max-width: 600px; margin-left: auto; margin-right: auto;">
+                    Are you a Penn student or faculty member interested in civic technology and AI? We are always
+                    looking for collaborators.</p>
+                <a href="contact.html" class="btn" style="background: var(--white); color: var(--penn-blue);">Get in
+                    Touch</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-cols">
+                <!-- Col 1: Logo & Address -->
+                <div class="footer-col">
+                    <div class="footer-logo">
+                        <a href="index.html"><img src="Photos/Fels_Logo_Blue_Background.png"
+                                alt="Fels Institute of Government"></a>
+                    </div>
+                    <div class="footer-address">
+                        <p><strong>The Fels Institute of Government</strong><br>
+                            3814 Walnut St.<br>
+                            Philadelphia, PA 19104<br>
+                            (215) 898-9471<br>
+                            <a href="mailto:publicailab@sas.upenn.edu">publicailab@sas.upenn.edu</a>
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Col 2: Navigation -->
+                <div class="footer-nav-col">
+                    <h2>Main Navigation</h2>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="projects.html">Projects</a></li>
+                        <li><a href="prompts.html">Prompt Library</a></li>
+                        <li><a href="team.html">Team</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 3: Links & Social -->
+                <div class="footer-col">
+                    <a href="contact.html" class="white-link-box">Apply Now</a>
+                    <a href="contact.html" class="white-link-box">Request Info</a>
+                    <a href="contact.html" class="white-link-box">Contact Us</a>
+                    <div class="footer-social-row">
+                        <a href="https://www.facebook.com/PennFels" target="_blank" aria-label="Facebook">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="white">
+                                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                            </svg>
+                        </a>
+                        <a href="https://www.linkedin.com/school/fels-institute" target="_blank" aria-label="LinkedIn">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="white">
+                                <path
+                                    d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z">
+                                </path>
+                                <rect x="2" y="9" width="4" height="12"></rect>
+                                <circle cx="4" cy="4" r="2"></circle>
+                            </svg>
+                        </a>
+                        <a href="https://www.instagram.com/pennfels/" target="_blank" aria-label="Instagram">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Col 4: University Links -->
+                <div class="footer-col bottom-utility">
+                    <p><a href="https://www.lps.upenn.edu/">College of Liberal and Professional Studies</a></p>
+                    <p><a href="https://www.sas.upenn.edu/">School of Arts & Sciences</a></p>
+                    <p><a href="https://www.upenn.edu/">University of Pennsylvania</a></p>
+                    <p class="copyright-footer">© <span id="year"></span> Fels Institute of Government at the University
+                        of Pennsylvania</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+
+</html>
