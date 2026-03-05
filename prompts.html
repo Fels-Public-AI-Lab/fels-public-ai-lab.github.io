@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prompt Library | Fels Public AI Lab</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .page-header {
+            background: linear-gradient(rgba(1, 31, 91, 0.8), rgba(1, 31, 91, 0.8)), url('Photos/Fels_Patio_Spring.jpg') center/cover no-repeat;
+            color: var(--white);
+            padding: 100px 0 60px;
+            text-align: center;
+        }
+
+        .page-header h1 {
+            color: var(--white);
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .page-header p {
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .filter-container {
+            margin: 40px 0;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 8px 20px;
+            border: 1px solid var(--penn-blue);
+            background: transparent;
+            color: var(--penn-blue);
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .filter-btn.active,
+        .filter-btn:hover {
+            background: var(--penn-blue);
+            color: var(--white);
+        }
+
+        /* Loading state */
+        #prompt-grid:empty::after {
+            content: "Loading prompts...";
+            display: block;
+            text-align: center;
+            width: 100%;
+            padding: 40px;
+            color: var(--text-muted);
+        }
+    </style>
+</head>
+
+<body class="fade-in">
+
+    <header>
+        <div class="container">
+            <nav>
+                <a href="index.html" class="logo">
+                    <img src="Photos/Fels_Logo_White_Background.png" alt="Fels Logo">
+                    <span>Fels Public AI Lab</span>
+                </a>
+                <div class="nav-links">
+                    <a href="index.html">Home</a>
+                    <a href="projects.html">Projects</a>
+                    <a href="prompts.html" class="active">Prompt Library</a>
+                    <a href="team.html">Team</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+                <div class="menu-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1>Prompt Library</h1>
+                <p>A curated collection of battle-tested AI prompts for public sector challenges.</p>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <div style="text-align: center; max-width: 800px; margin: 0 auto;">
+                    <p style="color: var(--text-muted); font-size: 1.1rem; line-height: 1.8;">Our library provides
+                        structured, high-context prompts designed for policy analysis, communications, and
+                        administrative tasks. These prompts are shared to help public servants understand how to better
+                        interact with LLMs.</p>
+                </div>
+
+                <div class="filter-container">
+                    <button class="filter-btn active" data-filter="all">All</button>
+                    <button class="filter-btn" data-filter="Transportation">Transportation</button>
+                    <button class="filter-btn" data-filter="Communications">Communications</button>
+                    <button class="filter-btn" data-filter="Education & Training">Education</button>
+                    <button class="filter-btn" data-filter="Finance & Procurement">Finance</button>
+                    <button class="filter-btn" data-filter="Public Health">Public Health</button>
+                </div>
+
+                <div id="prompt-grid" class="grid" style="grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));">
+                    <!-- Prompts injected by main.js -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-cols">
+                <!-- Col 1: Logo & Address -->
+                <div class="footer-col">
+                    <div class="footer-logo">
+                        <a href="index.html"><img src="Photos/Fels_Logo_Blue_Background.png"
+                                alt="Fels Institute of Government"></a>
+                    </div>
+                    <div class="footer-address">
+                        <p><strong>The Fels Institute of Government</strong><br>
+                            3814 Walnut St.<br>
+                            Philadelphia, PA 19104<br>
+                            (215) 898-9471<br>
+                            <a href="mailto:publicailab@sas.upenn.edu">publicailab@sas.upenn.edu</a>
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Col 2: Navigation -->
+                <div class="footer-nav-col">
+                    <h2>Main Navigation</h2>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="projects.html">Projects</a></li>
+                        <li><a href="prompts.html">Prompt Library</a></li>
+                        <li><a href="team.html">Team</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 3: Links & Social -->
+                <div class="footer-col">
+                    <a href="contact.html" class="white-link-box">Apply Now</a>
+                    <a href="contact.html" class="white-link-box">Request Info</a>
+                    <a href="contact.html" class="white-link-box">Contact Us</a>
+                    <div class="footer-social-row">
+                        <a href="https://www.facebook.com/PennFels" target="_blank" aria-label="Facebook">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="white">
+                                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                            </svg>
+                        </a>
+                        <a href="https://www.linkedin.com/school/fels-institute" target="_blank" aria-label="LinkedIn">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="white">
+                                <path
+                                    d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z">
+                                </path>
+                                <rect x="2" y="9" width="4" height="12"></rect>
+                                <circle cx="4" cy="4" r="2"></circle>
+                            </svg>
+                        </a>
+                        <a href="https://www.instagram.com/pennfels/" target="_blank" aria-label="Instagram">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Col 4: University Links -->
+                <div class="footer-col bottom-utility">
+                    <p><a href="https://www.lps.upenn.edu/">College of Liberal and Professional Studies</a></p>
+                    <p><a href="https://www.sas.upenn.edu/">School of Arts & Sciences</a></p>
+                    <p><a href="https://www.upenn.edu/">University of Pennsylvania</a></p>
+                    <p class="copyright-footer">© <span id="year"></span> Fels Institute of Government at the University
+                        of Pennsylvania</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+
+</html>
