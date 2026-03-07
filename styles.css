@@ -603,6 +603,7 @@ footer {
     position: relative;
     transform: translateY(20px);
     transition: transform 0.3s;
+    margin-top: -40px;
 }
 
 .modal-overlay.is-open .modal {
