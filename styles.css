@@ -67,12 +67,10 @@ section {
 @keyframes fadeIn {
     from {
         opacity: 0;
-        transform: translateY(20px);
     }
 
     to {
         opacity: 1;
-        transform: none;
     }
 }
 
@@ -603,7 +601,6 @@ footer {
     position: relative;
     transform: translateY(20px);
     transition: transform 0.3s;
-    margin-top: -40px;
 }
 
 .modal-overlay.is-open .modal {
