@@ -224,6 +224,62 @@
             background: #ddd;
             margin-right: 2px;
         }
+
+        /* Two-tier link layout */
+        .project-links-primary {
+            margin-bottom: 12px;
+        }
+
+        .project-link-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: var(--penn-blue);
+            color: var(--white);
+            font-size: 0.85rem;
+            font-weight: 600;
+            padding: 8px 16px;
+            border-radius: 4px;
+            transition: background var(--transition-speed);
+        }
+
+        .project-link-cta:hover {
+            background: var(--penn-red);
+            color: var(--white);
+        }
+
+        .project-link-cta svg {
+            width: 13px;
+            height: 13px;
+            fill: currentColor;
+            flex-shrink: 0;
+        }
+
+        .project-links-secondary {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px 14px;
+        }
+
+        .project-link-secondary {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            transition: color var(--transition-speed);
+        }
+
+        .project-link-secondary:hover {
+            color: var(--penn-red);
+        }
+
+        .project-link-secondary svg {
+            width: 11px;
+            height: 11px;
+            fill: currentColor;
+            flex-shrink: 0;
+        }
     </style>
 </head>
 
@@ -319,21 +375,40 @@
                             <h3 class="project-title">Public Finance Exercises</h3>
                             <span class="status-badge status-active">Active</span>
                         </div>
-                        <p class="project-desc">A library of standalone interactive HTML exercises for MPA courses in
-                            public and nonprofit finance. Covers revenue forecasting, budget variance analysis, and
-                            related topics. Designed to be dropped into any LMS or used independently.</p>
+                        <p class="project-desc">Interactive HTML exercises for public and nonprofit finance courses.
+                            Covers core MPA finance topics with hands-on, browser-based simulations — no installation
+                            required.</p>
                         <p class="project-audience"><strong>For:</strong> MPA students and instructors</p>
                         <div class="project-tags">
                             <span class="project-tag">Education</span>
-                            <span class="project-tag">HTML</span>
                             <span class="project-tag">Open Educational Resource</span>
+                            <span class="project-tag">HTML</span>
                         </div>
-                        <div class="project-links">
-                            <a href="https://github.com/Fels-Public-AI-Lab/public-finance-exercises" target="_blank"
-                                class="project-link">
-                                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.342-3.369-1.342-.454-1.155-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0 1 12 6.836c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.741 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg>
-                                GitHub
-                            </a>
+                        <div class="project-links" style="flex-direction: column; align-items: flex-start;">
+                            <div class="project-links-primary">
+                                <a href="https://fels-public-ai-lab.github.io/public-finance-exercises/" target="_blank" class="project-link-cta">
+                                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 6h16M4 12h16M4 18h10"/></svg>
+                                    Browse All Exercises
+                                </a>
+                            </div>
+                            <div class="project-links-secondary">
+                                <a href="https://fels-public-ai-lab.github.io/public-finance-exercises/sales-tax-revenue-forecasting/" target="_blank" class="project-link-secondary">
+                                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14 21 3"/></svg>
+                                    Sales Tax Revenue Forecasting
+                                </a>
+                                <a href="https://fels-public-ai-lab.github.io/public-finance-exercises/budget-trend-analysis/" target="_blank" class="project-link-secondary">
+                                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14 21 3"/></svg>
+                                    Budget Trend Analysis
+                                </a>
+                                <a href="https://fels-public-ai-lab.github.io/public-finance-exercises/personnel-budget/" target="_blank" class="project-link-secondary">
+                                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14 21 3"/></svg>
+                                    Personnel Budget
+                                </a>
+                                <a href="https://github.com/Fels-Public-AI-Lab/public-finance-exercises" target="_blank" class="project-link-secondary">
+                                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.342-3.369-1.342-.454-1.155-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0 1 12 6.836c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.741 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg>
+                                    GitHub
+                                </a>
+                            </div>
                         </div>
                     </div>
 
