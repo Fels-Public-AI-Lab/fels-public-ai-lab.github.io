@@ -1,0 +1,1193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Philadelphia Budget Simulator | Fels Public AI Lab</title>
+  <link rel="stylesheet" href="../styles.css">
+  <style>
+    /* ── Page-specific styles only ─────────────────────────────────── */
+
+    /* Hero */
+    .sim-hero {
+      background: linear-gradient(135deg, var(--penn-red) 0%, var(--penn-blue) 60%);
+      color: var(--white);
+      padding: 80px 0 60px;
+    }
+
+    .sim-hero h1 {
+      color: var(--white);
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      margin-bottom: 16px;
+    }
+
+    .sim-hero p {
+      font-size: 1.05rem;
+      opacity: 0.85;
+      max-width: 600px;
+      margin-bottom: 32px;
+      line-height: 1.7;
+    }
+
+    .sim-hero-stats {
+      display: flex;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+
+    .sim-hero-stat .num {
+      display: block;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--white);
+    }
+
+    .sim-hero-stat .lbl {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      opacity: 0.7;
+    }
+
+    /* Layout */
+    .sim-body {
+      padding: 50px 0 80px;
+    }
+
+    .sim-grid {
+      display: grid;
+      grid-template-columns: 1fr 360px;
+      gap: 30px;
+      align-items: start;
+    }
+
+    /* Section label */
+    .sim-section-eyebrow {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--penn-red);
+      margin-bottom: 6px;
+    }
+
+    .sim-section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      color: var(--penn-blue);
+      margin-bottom: 6px;
+    }
+
+    .sim-section-desc {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin-bottom: 24px;
+    }
+
+    /* Sliders panel */
+    .sliders-panel {
+      background: var(--white);
+      border: 1px solid #eee;
+      border-radius: 8px;
+      padding: 28px;
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+    }
+
+    .cat-header {
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--white);
+      padding: 4px 10px;
+      border-radius: 3px;
+      display: inline-block;
+      margin-top: 20px;
+      margin-bottom: 14px;
+    }
+
+    .cat-header:first-child {
+      margin-top: 0;
+    }
+
+    .dept-group {
+      margin-bottom: 6px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid #f5f5f5;
+    }
+
+    .dept-group:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+      margin-bottom: 0;
+    }
+
+    .dept-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 6px;
+      gap: 12px;
+    }
+
+    .dept-name {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--penn-blue);
+      display: flex;
+      align-items: center;
+      gap: 7px;
+    }
+
+    .dept-icon {
+      font-size: 14px;
+    }
+
+    .dept-values {
+      text-align: right;
+      flex-shrink: 0;
+    }
+
+    .dept-actual {
+      font-size: 0.72rem;
+      color: #999;
+      display: block;
+    }
+
+    .dept-user {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--penn-blue);
+      display: block;
+    }
+
+    .dept-user.over {
+      color: var(--penn-red);
+    }
+
+    .dept-user.under {
+      color: #2d6a4f;
+    }
+
+    .dept-note {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      line-height: 1.45;
+      margin-bottom: 6px;
+    }
+
+    /* Slider */
+    .slider-wrap {
+      position: relative;
+      margin-bottom: 4px;
+    }
+
+    input[type=range] {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 100%;
+      height: 4px;
+      border-radius: 2px;
+      background: #e8e8e8;
+      outline: none;
+      cursor: pointer;
+    }
+
+    input[type=range]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 15px;
+      height: 15px;
+      border-radius: 50%;
+      background: var(--penn-blue);
+      cursor: pointer;
+      border: 2px solid white;
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+      transition: background 0.15s, transform 0.15s;
+    }
+
+    input[type=range]:hover::-webkit-slider-thumb {
+      background: var(--penn-red);
+      transform: scale(1.15);
+    }
+
+    input[type=range]:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+    }
+
+    input[type=range]:disabled::-webkit-slider-thumb {
+      background: #aaa;
+      transform: none;
+      cursor: not-allowed;
+    }
+
+    .slider-track-fill {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      height: 4px;
+      border-radius: 2px;
+      transform: translateY(-50%);
+      pointer-events: none;
+      transition: width 0.1s;
+    }
+
+    .lock-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: #888;
+      background: #f5f5f5;
+      border-radius: 3px;
+      padding: 2px 8px;
+      margin-bottom: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    /* Impact panel */
+    .impact-panel {
+      background: var(--white);
+      border: 1px solid #eee;
+      border-radius: 8px;
+      padding: 24px;
+      margin-top: 24px;
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+    }
+
+    .impact-panel h3 {
+      font-size: 1.1rem;
+      margin-bottom: 14px;
+    }
+
+    .impact-empty {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      font-style: italic;
+      line-height: 1.6;
+    }
+
+    .impact-item {
+      display: flex;
+      gap: 10px;
+      padding: 10px 14px;
+      border-radius: 6px;
+      margin-bottom: 8px;
+      font-size: 0.85rem;
+      line-height: 1.55;
+      border-left: 3px solid transparent;
+    }
+
+    .impact-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .impact-item.cut {
+      background: #fff5f5;
+      border-color: var(--penn-red);
+      color: #5a1a1a;
+    }
+
+    .impact-item.boost {
+      background: #f0faf5;
+      border-color: #2d6a4f;
+      color: #1a3d2a;
+    }
+
+    .impact-icon {
+      font-size: 1rem;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .impact-dept-label {
+      font-size: 0.68rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      opacity: 0.65;
+      margin-bottom: 3px;
+    }
+
+    /* ── SIDEBAR ───────────────────────────────────────────────────── */
+    .sidebar {
+      position: sticky;
+      top: 100px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    /* Budget meter card */
+    .meter-card {
+      background: var(--penn-blue);
+      color: var(--white);
+      border-radius: 8px;
+      padding: 24px;
+    }
+
+    .meter-eyebrow {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      opacity: 0.6;
+      margin-bottom: 4px;
+    }
+
+    .meter-total {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      color: var(--white);
+      margin-bottom: 2px;
+    }
+
+    .meter-total.over {
+      color: #ff8080;
+    }
+
+    .meter-total.under {
+      color: #7fffc4;
+    }
+
+    .meter-subtitle {
+      font-size: 0.75rem;
+      opacity: 0.5;
+      margin-bottom: 14px;
+    }
+
+    .meter-bar-wrap {
+      background: rgba(255, 255, 255, 0.12);
+      border-radius: 4px;
+      height: 8px;
+      overflow: hidden;
+      margin-bottom: 6px;
+    }
+
+    .meter-bar-fill {
+      height: 100%;
+      border-radius: 4px;
+      background: #F2C53D;
+      transition: width 0.3s ease, background 0.3s;
+    }
+
+    .meter-bar-fill.over {
+      background: #ff8080;
+    }
+
+    .meter-diff {
+      font-size: 0.78rem;
+      font-weight: 600;
+      margin-bottom: 14px;
+    }
+
+    .meter-diff.balanced {
+      color: #F2C53D;
+    }
+
+    .meter-diff.over {
+      color: #ff8080;
+    }
+
+    .meter-diff.under {
+      color: #7fffc4;
+    }
+
+    .meter-reset {
+      width: 100%;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: var(--white);
+      font-family: 'Source Sans 3', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      padding: 8px;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .meter-reset:hover {
+      background: rgba(255, 255, 255, 0.18);
+    }
+
+    /* Pie chart card */
+    .chart-card {
+      background: var(--white);
+      border: 1px solid #eee;
+      border-radius: 8px;
+      padding: 22px;
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+    }
+
+    .chart-card h3 {
+      font-size: 1rem;
+      margin-bottom: 16px;
+    }
+
+    .pie-wrap {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .pie-legend {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .pie-legend-item {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      font-size: 0.74rem;
+      color: var(--text-dark);
+    }
+
+    .pie-swatch {
+      width: 9px;
+      height: 9px;
+      border-radius: 2px;
+      flex-shrink: 0;
+    }
+
+    .pie-pct {
+      font-weight: 700;
+      color: var(--penn-blue);
+      margin-left: auto;
+      font-size: 0.72rem;
+    }
+
+    /* Bar chart card */
+    .bar-card {
+      background: var(--white);
+      border: 1px solid #eee;
+      border-radius: 8px;
+      padding: 22px;
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+    }
+
+    .bar-card h3 {
+      font-size: 1rem;
+      margin-bottom: 14px;
+    }
+
+    .bar-chart {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    .bar-row {
+      display: grid;
+      grid-template-columns: 90px 1fr 46px;
+      align-items: center;
+      gap: 7px;
+    }
+
+    .bar-dept-name {
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      text-align: right;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .bar-track {
+      background: #f0f0f0;
+      border-radius: 3px;
+      height: 16px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .bar-actual {
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 100%;
+      background: rgba(1, 31, 91, 0.12);
+      border-radius: 3px;
+      transition: width 0.3s;
+    }
+
+    .bar-user-fill {
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 100%;
+      border-radius: 3px;
+      opacity: 0.7;
+      transition: width 0.3s ease, background 0.3s;
+    }
+
+    .bar-val {
+      font-size: 0.65rem;
+      color: var(--text-muted);
+      text-align: right;
+      white-space: nowrap;
+    }
+
+    /* Insights card */
+    .insights-card {
+      background: var(--white);
+      border: 1px solid #eee;
+      border-radius: 8px;
+      padding: 22px;
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+    }
+
+    .insights-card h3 {
+      font-size: 1rem;
+      margin-bottom: 12px;
+    }
+
+    .insight-item {
+      display: flex;
+      gap: 9px;
+      font-size: 0.82rem;
+      color: var(--text-dark);
+      line-height: 1.5;
+      padding-bottom: 10px;
+      margin-bottom: 10px;
+      border-bottom: 1px solid #f5f5f5;
+    }
+
+    .insight-item:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .insight-icon {
+      flex-shrink: 0;
+      font-size: 0.95rem;
+      margin-top: 1px;
+    }
+
+    /* Data note */
+    .data-note {
+      background: var(--light-gray);
+      border-left: 3px solid var(--penn-blue);
+      padding: 16px 20px;
+      border-radius: 0 4px 4px 0;
+      margin-top: 30px;
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    .data-note a {
+      color: var(--penn-red);
+      text-decoration: underline;
+    }
+
+    @media (max-width: 900px) {
+      .sim-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .sidebar {
+        position: static;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ── NAV (matches site pattern) ───────────────────────────────────── -->
+  <header>
+    <div class="container">
+      <nav>
+        <a href="../index.html" class="logo">
+          <img src="../Photos/Fels_Logo_White_Background.png" alt="Fels Logo">
+          <span>Fels Public AI Lab</span>
+        </a>
+        <div class="nav-links" id="nav-links">
+          <a href="../index.html">Home</a>
+          <a href="../projects.html" class="active">Projects</a>
+          <a href="../prompts.html">Prompt Library</a>
+          <a href="../team.html">Team</a>
+          <a href="../contact.html">Contact</a>
+        </div>
+        <div class="menu-toggle" id="menu-toggle">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ── HERO ─────────────────────────────────────────────────────────── -->
+  <section class="sim-hero">
+    <div class="container">
+      <p class="sim-section-eyebrow" style="color:rgba(255,255,255,0.6); margin-bottom:10px;">Interactive Civic Tool ·
+        FY2025 General Fund</p>
+      <h1>How Would You Spend Philadelphia's $6 Billion?</h1>
+      <p>The City of Philadelphia spends over $6 billion per year delivering services to 1.5 million residents. Use the
+        sliders below to set your own priorities — then see what trade-offs that requires and what it means for real
+        services.</p>
+      <div class="sim-hero-stats">
+        <div class="sim-hero-stat"><span class="num">$6.05B</span><span class="lbl">FY2025 Actual Spending</span></div>
+        <div class="sim-hero-stat"><span class="num">1.57M</span><span class="lbl">Philadelphia Residents</span></div>
+        <div class="sim-hero-stat"><span class="num">17</span><span class="lbl">Budget Categories</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── MAIN CONTENT ──────────────────────────────────────────────────── -->
+  <section class="sim-body">
+    <div class="container">
+      <div class="sim-grid">
+
+        <!-- LEFT: SLIDERS + IMPACT -->
+        <div>
+          <p class="sim-section-eyebrow">Step 1</p>
+          <h2 class="sim-section-title">Adjust the Allocations</h2>
+          <p class="sim-section-desc">Drag the sliders to set your spending priorities. The gray bar shows FY2025 actual
+            spending for reference. Fixed costs are locked — they represent legally obligated payments the city cannot
+            reduce.</p>
+
+          <div class="sliders-panel" id="sliders-panel">
+            <!-- Built by JS -->
+          </div>
+
+          <div class="impact-panel">
+            <h3>What Your Changes Mean</h3>
+            <div id="impact-list">
+              <p class="impact-empty">Move any slider to see the real-world effects of your budget choices.</p>
+            </div>
+          </div>
+
+          <div class="data-note">
+            <strong>Data source:</strong> City of Philadelphia Annual Financial Report, Fiscal Year Ended June 30, 2025
+            (Office of the Director of Finance, October 2025). Figures represent General Fund expenditures on a modified
+            accrual basis. Fixed costs include General Management (employee benefits, pensions, administration), Capital
+            Outlay, and Debt Service. Per-capita calculations use 2023 Census estimate of 1,567,810 residents. This tool
+            is produced by the <strong>Fels Public AI Lab</strong> at the University of Pennsylvania for educational and
+            civic engagement purposes — it is not an official City of Philadelphia tool. <a
+              href="https://www.phila.gov/media/20251029115456/finance-annual-financial-report-fy-2025.pdf"
+              target="_blank">View source document →</a>
+          </div>
+        </div>
+
+        <!-- RIGHT: SIDEBAR -->
+        <div class="sidebar">
+
+          <!-- BUDGET METER -->
+          <div class="meter-card">
+            <div class="meter-eyebrow">Your Total Budget</div>
+            <div class="meter-total" id="user-total">$6,054M</div>
+            <div class="meter-subtitle">Available: $6,054M (FY2025 revenue)</div>
+            <div class="meter-bar-wrap">
+              <div class="meter-bar-fill" id="budget-bar" style="width:100%"></div>
+            </div>
+            <div class="meter-diff balanced" id="budget-diff">✓ Balanced</div>
+            <button class="meter-reset" onclick="resetAll()">↺ Reset to FY2025 Actual</button>
+          </div>
+
+          <!-- PIE CHART -->
+          <div class="chart-card">
+            <h3>Spending by Category</h3>
+            <div class="pie-wrap">
+              <canvas id="pie-canvas" width="120" height="120"></canvas>
+              <div class="pie-legend" id="pie-legend"></div>
+            </div>
+          </div>
+
+          <!-- BAR CHART -->
+          <div class="bar-card">
+            <h3>Your Allocation vs. Actual</h3>
+            <div class="bar-chart" id="bar-chart"></div>
+          </div>
+
+          <!-- INSIGHTS -->
+          <div class="insights-card">
+            <h3>Context & Trade-offs</h3>
+            <div id="insights-list"></div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FOOTER (matches site pattern) ────────────────────────────────── -->
+  <footer>
+    <div class="container">
+      <div class="footer-cols">
+        <!-- Col 1: Logo & Address -->
+        <div class="footer-col">
+          <div class="footer-logo">
+            <a href="../index.html"><img src="../Photos/Fels_Logo_Blue_Background.png"
+                alt="Fels Institute of Government"></a>
+          </div>
+          <div class="footer-address">
+            <p><strong>The Fels Institute of Government</strong><br>
+              3814 Walnut St.<br>
+              Philadelphia, PA 19104<br>
+              (215) 898-9471<br>
+              <a href="mailto:publicailab@sas.upenn.edu">publicailab@sas.upenn.edu</a>
+            </p>
+          </div>
+        </div>
+
+        <!-- Col 2: Navigation -->
+        <div class="footer-nav-col">
+          <h2>Main Navigation</h2>
+          <ul>
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="../projects.html">Projects</a></li>
+            <li><a href="../prompts.html">Prompt Library</a></li>
+            <li><a href="../team.html">Team</a></li>
+            <li><a href="../contact.html">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Links & Social -->
+        <div class="footer-col">
+          <a href="https://www.fels.upenn.edu/admissions" class="white-link-box">Apply to Fels</a>
+          <a href="https://www.fels.upenn.edu/rfi" class="white-link-box">Request Info</a>
+          <a href="https://www.fels.upenn.edu/people-fels" class="white-link-box">Contact the Fels Team</a>
+          <div class="footer-social-row">
+            <a href="https://www.facebook.com/PennFels" target="_blank" aria-label="Facebook">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="white">
+                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+              </svg>
+            </a>
+            <a href="https://www.linkedin.com/school/fels-institute" target="_blank" aria-label="LinkedIn">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="white">
+                <path
+                  d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z">
+                </path>
+                <rect x="2" y="9" width="4" height="12"></rect>
+                <circle cx="4" cy="4" r="2"></circle>
+              </svg>
+            </a>
+            <a href="https://www.instagram.com/pennfels/" target="_blank" aria-label="Instagram">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Col 4: University Links -->
+        <div class="footer-col bottom-utility">
+          <p><a href="https://www.lps.upenn.edu/">College of Liberal and Professional Studies</a></p>
+          <p><a href="https://www.sas.upenn.edu/">School of Arts & Sciences</a></p>
+          <p><a href="https://www.upenn.edu/">University of Pennsylvania</a></p>
+          <p class="copyright-footer">© <span id="year">2025</span> Fels Institute of Government at the University
+            of Pennsylvania<br>Not an official City of Philadelphia tool.</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // ── DATA ──────────────────────────────────────────────────────────────
+    const REVENUE = 6054.4;
+    const POP = 1567810;
+
+    const CAT_META = {
+      safety: { label: 'Public Safety', color: '#8B1A1A' },
+      human: { label: 'Human Services', color: '#2d6a4f' },
+      community: { label: 'Community', color: '#415a77' },
+      economic: { label: 'Economic Dev.', color: '#6d6875' },
+      fixed: { label: 'Fixed Costs', color: '#011F5B' },
+    };
+
+    const CAT_COLORS_SLIDER = {
+      safety: '#c44536', human: '#2d6a4f', community: '#415a77', economic: '#6d6875', fixed: '#011F5B'
+    };
+
+    const departments = [
+      {
+        id: 'police', name: 'Police', actual: 1369.5, cat: 'safety', icon: '🚔', locked: false,
+        note: 'Philadelphia has one of the highest per-capita police spending rates among large US cities — $873/resident.',
+        impacts: { cut_lg: 'Fewer officers on patrol, longer response times, possible station closures. Philadelphia already struggles with officer retention.', cut_sm: 'Could mean overtime reductions, fewer community policing programs, or delayed equipment upgrades.', boost_sm: 'Could support more community liaison officers and mental health co-responder programs.', boost_lg: 'Could fund body camera programs, expanded detective units, and faster dispatch technology.' }
+      },
+      {
+        id: 'fire', name: 'Fire', actual: 571.5, cat: 'safety', icon: '🚒', locked: false,
+        note: 'Covers fire suppression, prevention, and infrastructure across all city neighborhoods.',
+        impacts: { cut_lg: 'Could mean closing firehouses or reducing staffing per truck, increasing response times in dense rowhouse neighborhoods.', cut_sm: 'Could reduce training budgets, equipment maintenance, or fire prevention inspection programs.', boost_sm: 'Could fund replacement of aging apparatus and additional firefighter positions.', boost_lg: 'Could modernize the fleet and expand fire prevention outreach citywide.' }
+      },
+      {
+        id: 'ems', name: 'Emergency Medical', actual: 111.2, cat: 'safety', icon: '🚑', locked: false,
+        note: 'Paramedics and ambulance operations. Every minute of delay in cardiac arrest reduces survival odds ~10%.',
+        impacts: { cut_lg: 'Longer ambulance response times, particularly in underserved neighborhoods.', cut_sm: 'Fewer ambulances on rotation or slower replacement of medical equipment.', boost_sm: 'Could fund additional paramedic positions or mobile crisis units for mental health emergencies.', boost_lg: 'Could significantly expand mental health co-response programs and reduce strain on hospital ERs.' }
+      },
+      {
+        id: 'prisons', name: 'Prisons', actual: 417.8, cat: 'safety', icon: '⚖️', locked: false,
+        note: 'Philadelphia\'s jail system costs over $60,000 per inmate per year — among the highest in the nation.',
+        impacts: { cut_lg: 'Would require major population reductions through early release or alternatives to incarceration.', cut_sm: 'Modest reductions could come from diversion programs, which research shows reduce recidivism while cutting costs.', boost_sm: 'Could fund rehabilitation programs, mental health services, and reentry support.', boost_lg: 'Could fund major facility improvements and comprehensive reentry programming.' }
+      },
+      {
+        id: 'courts', name: 'Courts', actual: 401.3, cat: 'safety', icon: '🏛️', locked: false,
+        note: 'Covers the First Judicial District. Philadelphia\'s case backlogs leave defendants waiting in pretrial detention.',
+        impacts: { cut_lg: 'Would worsen already severe case backlogs, leaving defendants — many presumed innocent — waiting longer in pretrial detention.', cut_sm: 'Fewer courtrooms operating or reduced support staff, slowing case processing.', boost_sm: 'Could fund additional public defenders or case management technology to reduce backlogs.', boost_lg: 'Could dramatically accelerate case resolution, reducing pretrial detention and associated costs.' }
+      },
+      {
+        id: 'social', name: 'Social Services', actual: 381.7, cat: 'human', icon: '🤝', locked: false,
+        note: 'Includes foster care, senior services, and youth intervention programs.',
+        impacts: { cut_lg: 'Would reduce foster care capacity, cut senior services, and eliminate youth intervention — affecting Philadelphia\'s most vulnerable residents.', cut_sm: 'Could mean waiting lists and reduced caseworker capacity.', boost_sm: 'Could expand family support services that keep children out of the foster system — more effective and less costly long-term.', boost_lg: 'Could fund comprehensive family stabilization services and reduce child welfare caseloads.' }
+      },
+      {
+        id: 'health', name: 'Health Services', actual: 236.7, cat: 'human', icon: '🏥', locked: false,
+        note: 'Department of Public Health and behavioral health. Philadelphia has high rates of opioid use disorder.',
+        impacts: { cut_lg: 'Could close health centers, cut disease surveillance, or reduce behavioral health services.', cut_sm: 'Could reduce outreach programs or preventive care clinics in underserved neighborhoods.', boost_sm: 'Could expand community health centers and harm reduction programs, reducing downstream hospital costs.', boost_lg: 'Could fund a major expansion of community mental health and addiction treatment.' }
+      },
+      {
+        id: 'education', name: 'Education', actual: 336.0, cat: 'human', icon: '📚', locked: false,
+        note: 'City contributions to the School District. Philadelphia\'s schools are chronically underfunded.',
+        impacts: { cut_lg: 'Cuts would fall on an already strained system, potentially reducing teachers, counselors, or extracurriculars.', cut_sm: 'Could reduce city contributions to after-school programs or early childhood education.', boost_sm: 'Could fund pre-K expansion or additional school counselors — investments with strong long-term returns.', boost_lg: 'Could enable a major expansion of early childhood education and support services in high-need schools.' }
+      },
+      {
+        id: 'sanitation', name: 'Sanitation', actual: 270.0, cat: 'human', icon: '♻️', locked: false,
+        note: 'Waste collection, recycling, and Clean & Green initiatives.',
+        impacts: { cut_lg: 'Less frequent trash collection or fewer clean-and-green crews — most visible in dense rowhouse neighborhoods.', cut_sm: 'Could mean reduced recycling pickup frequency or less illegal dumping enforcement.', boost_sm: 'Could increase sanitation crew staffing and reduce collection delays in neighborhoods that receive less service.', boost_lg: 'Could fund citywide composting, expanded recycling, and zero-waste infrastructure.' }
+      },
+      {
+        id: 'recreation', name: 'Recreation & Parks', actual: 149.9, cat: 'community', icon: '🌳', locked: false,
+        note: 'Fairmount Park, neighborhood recreation centers, pools, and youth athletic programs.',
+        impacts: { cut_lg: 'Could close recreation centers in lower-income neighborhoods, eliminating after-school programming and summer activities for youth.', cut_sm: 'Could reduce pool open seasons, athletic program staff, or park maintenance.', boost_sm: 'Could restore full operating hours at recreation centers and fund summer youth programming.', boost_lg: 'Could fund major park renovations in underserved neighborhoods and expand youth employment programs.' }
+      },
+      {
+        id: 'libraries', name: 'Libraries', actual: 112.5, cat: 'community', icon: '📖', locked: false,
+        note: 'The Free Library of Philadelphia operates 54 neighborhood branches serving job seekers, seniors, and children.',
+        impacts: { cut_lg: 'Would likely mean closing branches or drastically cutting hours. Libraries serve as community anchors — particularly in neighborhoods with few other public spaces.', cut_sm: 'Could mean shorter hours, reduced programming, or fewer digital resources.', boost_sm: 'Could restore full branch hours and fund digital literacy programs.', boost_lg: 'Could fund new branches in underserved areas and significantly expand job-training and early literacy programs.' }
+      },
+      {
+        id: 'transit', name: 'Mass Transit', actual: 133.3, cat: 'community', icon: '🚌', locked: false,
+        note: 'City subsidy payments to SEPTA. About 1 in 3 Philadelphians has no car.',
+        impacts: { cut_lg: 'Would jeopardize SEPTA subsidies and likely eliminate the Zero Fare program for low-income riders, cutting access to jobs, medical care, and schools.', cut_sm: 'Could end the Zero Fare program (~$31M), which provides free transit passes to qualifying low-income residents.', boost_sm: 'Could expand the Zero Fare program or fund new bus rapid transit routes.', boost_lg: 'Could fund a significant expansion of transit access in underserved neighborhoods.' }
+      },
+      {
+        id: 'housing', name: 'Housing', actual: 7.9, cat: 'community', icon: '🏘️', locked: false,
+        note: 'General Fund housing programs are minimal. Most housing support flows through the Housing Trust Fund and federal grants.',
+        impacts: { cut_lg: 'General Fund housing is already minimal. Cuts would largely eliminate targeted eviction prevention programs.', cut_sm: 'Would reduce an already thin housing safety net.', boost_sm: 'Could fund expanded eviction prevention and landlord-tenant mediation programs.', boost_lg: 'Could fund a significant new affordable housing preservation initiative at the General Fund level.' }
+      },
+      {
+        id: 'econ', name: 'Economic Development', actual: 79.8, cat: 'economic', icon: '💼', locked: false,
+        note: 'Commerce Department, small business support, arts & culture, and neighborhood commercial corridors.',
+        impacts: { cut_lg: 'Could eliminate business support programs, arts funding, and neighborhood commercial corridor initiatives.', cut_sm: 'Could reduce small business grants or arts & culture contributions.', boost_sm: 'Could expand small business technical assistance and neighborhood commercial revitalization.', boost_lg: 'Could fund a major economic stimulus for commercial corridors and workforce development.' }
+      },
+      {
+        id: 'streets', name: 'Streets & Highways', actual: 32.2, cat: 'economic', icon: '🛣️', locked: false,
+        note: 'General Fund street maintenance. Additional funding flows through the separate Transportation Fund.',
+        impacts: { cut_lg: 'Philadelphia roads are already in poor condition. Cuts compound an existing backlog — though much street funding flows through the Transportation Fund.', cut_sm: 'Could reduce pothole patching crews or street lighting maintenance.', boost_sm: 'Could fund additional paving crews and repair more lane-miles annually.', boost_lg: 'Could significantly accelerate the paving backlog and fund infrastructure upgrades in underserved neighborhoods.' }
+      },
+      {
+        id: 'inspections', name: 'Inspections & Demo', actual: 72.0, cat: 'economic', icon: '🏗️', locked: false,
+        note: 'Licenses & Inspections and demolition of dangerous vacant properties — a significant Philadelphia problem.',
+        impacts: { cut_lg: 'Could reduce building inspection capacity and slow demolition of dangerous vacant properties.', cut_sm: 'Could mean longer wait times for permits and inspections.', boost_sm: 'Could accelerate demolition of dangerous properties and reduce permit processing times.', boost_lg: 'Could fund a major push to address Philadelphia\'s stock of vacant and dangerous buildings.' }
+      },
+      {
+        id: 'mgmt', name: 'General Management', actual: 1179.9, cat: 'fixed', icon: '🏢', locked: true,
+        note: 'Employee benefits, pensions, and city-wide administration. Locked — legally obligated.'
+      },
+      {
+        id: 'capital', name: 'Capital Outlay', actual: 115.2, cat: 'fixed', icon: '🏛️', locked: true,
+        note: 'Capital expenditures including Rebuild Philadelphia. Locked.'
+      },
+      {
+        id: 'debt', name: 'Debt Service', actual: 75.8, cat: 'fixed', icon: '🔒', locked: true,
+        note: 'Principal and interest on city debt. Cannot legally be reduced. Locked.'
+      },
+    ];
+
+    // ── STATE ─────────────────────────────────────────────────────────────
+    let userValues = {};
+    departments.forEach(d => { userValues[d.id] = d.actual; });
+
+    // ── BUILD SLIDERS ─────────────────────────────────────────────────────
+    function buildSliders() {
+      const panel = document.getElementById('sliders-panel');
+      panel.innerHTML = '';
+      let lastCat = null;
+
+      departments.forEach(dept => {
+        if (dept.cat !== lastCat) {
+          const catDiv = document.createElement('div');
+          catDiv.innerHTML = `<div class="cat-header" style="background:${CAT_COLORS_SLIDER[dept.cat]}">${CAT_META[dept.cat].label}</div>`;
+          panel.appendChild(catDiv);
+          lastCat = dept.cat;
+        }
+
+        const max = Math.max(dept.actual * 2.2, 100);
+        const perCap = (dept.actual * 1e6 / POP).toFixed(0);
+        const fillPct = (dept.actual / max * 100).toFixed(1);
+
+        const group = document.createElement('div');
+        group.className = 'dept-group';
+        group.innerHTML = `
+      <div class="dept-row">
+        <div class="dept-name"><span class="dept-icon">${dept.icon}</span>${dept.name}</div>
+        <div class="dept-values">
+          <span class="dept-actual">FY25: $${dept.actual.toFixed(0)}M · $${perCap}/res.</span>
+          <span class="dept-user" id="val-${dept.id}">$${dept.actual.toFixed(0)}M</span>
+        </div>
+      </div>
+      ${dept.locked ? `<div class="lock-badge">🔒 Fixed Cost</div>` : ''}
+      <p class="dept-note">${dept.note}</p>
+      <div class="slider-wrap">
+        <div class="slider-track-fill" id="fill-${dept.id}"
+          style="width:${fillPct}%; background:${CAT_COLORS_SLIDER[dept.cat]}; opacity:0.55"></div>
+        <input type="range" id="slider-${dept.id}"
+          min="0" max="${max.toFixed(0)}" step="0.5" value="${dept.actual.toFixed(1)}"
+          ${dept.locked ? 'disabled' : `oninput="onSlide('${dept.id}', this.value, ${max})"`}>
+      </div>`;
+        panel.appendChild(group);
+      });
+    }
+
+    // ── SLIDE ─────────────────────────────────────────────────────────────
+    function onSlide(id, val, max) {
+      val = parseFloat(val);
+      userValues[id] = val;
+      const dept = departments.find(d => d.id === id);
+      const pct = (val / max * 100).toFixed(1);
+
+      const fill = document.getElementById(`fill-${id}`);
+      if (fill) fill.style.width = pct + '%';
+
+      const label = document.getElementById(`val-${id}`);
+      if (label) {
+        label.textContent = `$${val.toFixed(0)}M`;
+        label.className = 'dept-user';
+        if (val > dept.actual * 1.05) label.classList.add('over');
+        else if (val < dept.actual * 0.95) label.classList.add('under');
+      }
+
+      updateMeter();
+      updatePie();
+      updateBarChart();
+      updateInsights();
+      updateImpacts();
+    }
+
+    // ── METER ─────────────────────────────────────────────────────────────
+    function updateMeter() {
+      const total = Object.values(userValues).reduce((a, b) => a + b, 0);
+      const diff = total - REVENUE;
+      const pct = Math.min((total / REVENUE) * 100, 130);
+
+      const totalEl = document.getElementById('user-total');
+      const barEl = document.getElementById('budget-bar');
+      const diffEl = document.getElementById('budget-diff');
+
+      totalEl.textContent = `$${total.toFixed(0)}M`;
+      totalEl.className = 'meter-total';
+      barEl.style.width = pct + '%';
+
+      if (Math.abs(diff) < 10) {
+        barEl.className = 'meter-bar-fill';
+        barEl.style.background = '#F2C53D';
+        diffEl.className = 'meter-diff balanced';
+        diffEl.textContent = '✓ Balanced';
+      } else if (diff > 0) {
+        barEl.className = 'meter-bar-fill over';
+        diffEl.className = 'meter-diff over';
+        diffEl.textContent = `▲ $${diff.toFixed(0)}M over — cut somewhere`;
+        totalEl.classList.add('over');
+      } else {
+        barEl.className = 'meter-bar-fill';
+        barEl.style.background = '#7fffc4';
+        diffEl.className = 'meter-diff under';
+        diffEl.textContent = `▼ $${Math.abs(diff).toFixed(0)}M under — surplus or tax relief`;
+        totalEl.classList.add('under');
+      }
+    }
+
+    // ── PIE CHART ─────────────────────────────────────────────────────────
+    function updatePie() {
+      const canvas = document.getElementById('pie-canvas');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      const W = canvas.width, H = canvas.height;
+      const cx = W / 2, cy = H / 2, r = W / 2 - 5, inner = r * 0.5;
+
+      const catTotals = {};
+      departments.forEach(d => { catTotals[d.cat] = (catTotals[d.cat] || 0) + userValues[d.id]; });
+      const total = Object.values(catTotals).reduce((a, b) => a + b, 0);
+
+      ctx.clearRect(0, 0, W, H);
+      let angle = -Math.PI / 2;
+      Object.keys(CAT_META).forEach(cat => {
+        const slice = ((catTotals[cat] || 0) / total) * 2 * Math.PI;
+        ctx.beginPath();
+        ctx.moveTo(cx, cy);
+        ctx.arc(cx, cy, r, angle, angle + slice);
+        ctx.closePath();
+        ctx.fillStyle = CAT_META[cat].color;
+        ctx.fill();
+        ctx.strokeStyle = '#fff';
+        ctx.lineWidth = 2;
+        ctx.stroke();
+        angle += slice;
+      });
+
+      // Donut hole
+      ctx.beginPath();
+      ctx.arc(cx, cy, inner, 0, 2 * Math.PI);
+      ctx.fillStyle = '#ffffff';
+      ctx.fill();
+
+      // Center text
+      ctx.fillStyle = '#011F5B';
+      ctx.font = 'bold 10px Source Sans 3, sans-serif';
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      ctx.fillText('$' + (total / 1000).toFixed(1) + 'B', cx, cy - 5);
+      ctx.font = '9px Source Sans 3, sans-serif';
+      ctx.fillStyle = '#999';
+      ctx.fillText('total', cx, cy + 8);
+
+      // Legend
+      const legend = document.getElementById('pie-legend');
+      legend.innerHTML = Object.keys(CAT_META).map(cat => {
+        const pct = ((catTotals[cat] || 0) / total * 100).toFixed(1);
+        return `<div class="pie-legend-item">
+      <div class="pie-swatch" style="background:${CAT_META[cat].color}"></div>
+      <span>${CAT_META[cat].label}</span>
+      <span class="pie-pct">${pct}%</span>
+    </div>`;
+      }).join('');
+    }
+
+    // ── BAR CHART ─────────────────────────────────────────────────────────
+    function updateBarChart() {
+      const chart = document.getElementById('bar-chart');
+      const depts = departments.filter(d => d.actual >= 70).sort((a, b) => userValues[b.id] - userValues[a.id]);
+      const maxVal = Math.max(...depts.map(d => Math.max(d.actual, userValues[d.id])));
+
+      chart.innerHTML = depts.map(dept => {
+        const aPct = (dept.actual / maxVal * 100).toFixed(1);
+        const uPct = (userValues[dept.id] / maxVal * 100).toFixed(1);
+        return `<div class="bar-row">
+      <div class="bar-dept-name">${dept.icon} ${dept.name}</div>
+      <div class="bar-track">
+        <div class="bar-actual" style="width:${aPct}%"></div>
+        <div class="bar-user-fill" style="width:${uPct}%; background:${CAT_COLORS_SLIDER[dept.cat]}"></div>
+      </div>
+      <div class="bar-val">$${userValues[dept.id].toFixed(0)}M</div>
+    </div>`;
+      }).join('');
+    }
+
+    // ── INSIGHTS ──────────────────────────────────────────────────────────
+    function updateInsights() {
+      const list = document.getElementById('insights-list');
+      const total = Object.values(userValues).reduce((a, b) => a + b, 0);
+      const items = [];
+
+      const polPct = (userValues['police'] / total * 100).toFixed(1);
+      items.push({ icon: '🔵', text: `Police is <strong>${polPct}%</strong> of your budget. Philadelphia's actual FY25 share was 22.6% — one of the highest among large US cities.` });
+
+      const lib = userValues['libraries'];
+      if (lib < 112.5 * 0.85) items.push({ icon: '📚', text: `You cut Libraries by $${(112.5 - lib).toFixed(0)}M. The Free Library's 54 branches are community anchors — cuts typically mean reduced hours or closed locations.` });
+      else if (lib > 112.5 * 1.2) items.push({ icon: '📚', text: `You increased Libraries by $${(lib - 112.5).toFixed(0)}M. The Free Library is chronically underfunded relative to peer cities.` });
+
+      if (userValues['transit'] < 109.6) items.push({ icon: '🚌', text: `Your transit subsidy falls below FY24 levels. About 1 in 3 Philadelphians has no car — the Zero Fare program alone costs ~$31M.` });
+
+      const safetyTotal = ['police', 'fire', 'ems', 'prisons', 'courts'].reduce((a, id) => a + userValues[id], 0);
+      const sPct = (safetyTotal / total * 100).toFixed(0);
+      items.push({ icon: '⚖️', text: `Your public safety total: <strong>$${safetyTotal.toFixed(0)}M (${sPct}%)</strong>. Philadelphia spends $${(userValues['prisons'] * 1e6 / POP).toFixed(0)}/resident on incarceration.` });
+
+      const perCap = (total * 1e6 / POP).toFixed(0);
+      items.push({ icon: '💰', text: `Your budget = <strong>$${perCap}/resident</strong>. FY25 actual was $3,861 — high for a US city, reflecting Philadelphia's combined city-county government structure.` });
+
+      list.innerHTML = items.slice(0, 4).map(i =>
+        `<div class="insight-item"><span class="insight-icon">${i.icon}</span><span>${i.text}</span></div>`
+      ).join('');
+    }
+
+    // ── IMPACTS ───────────────────────────────────────────────────────────
+    const SM = 0.08, LG = 0.20;
+
+    function updateImpacts() {
+      const list = document.getElementById('impact-list');
+      const items = [];
+
+      departments.filter(d => !d.locked && d.impacts).forEach(dept => {
+        const diff = userValues[dept.id] - dept.actual;
+        const pct = diff / dept.actual;
+        if (Math.abs(pct) < SM) return;
+        const isLg = Math.abs(pct) > LG;
+        const isCut = diff < 0;
+        const key = isCut ? (isLg ? 'cut_lg' : 'cut_sm') : (isLg ? 'boost_lg' : 'boost_sm');
+        items.push({
+          icon: isCut ? '⬇' : '⬆',
+          type: isCut ? 'cut' : 'boost',
+          dept: dept.name,
+          direction: isCut ? `−$${Math.abs(diff).toFixed(0)}M (${Math.abs(pct * 100).toFixed(0)}% cut)` : `+$${diff.toFixed(0)}M (+${(pct * 100).toFixed(0)}%)`,
+          text: dept.impacts[key],
+          mag: Math.abs(diff),
+        });
+      });
+
+      items.sort((a, b) => b.mag - a.mag);
+
+      if (!items.length) {
+        list.innerHTML = '<p class="impact-empty">Move any slider to see the real-world effects of your budget choices.</p>';
+        return;
+      }
+
+      list.innerHTML = items.slice(0, 6).map(i => `
+    <div class="impact-item ${i.type}">
+      <span class="impact-icon">${i.icon}</span>
+      <div>
+        <div class="impact-dept-label">${i.dept} · ${i.direction}</div>
+        ${i.text}
+      </div>
+    </div>`).join('');
+    }
+
+    // ── RESET ─────────────────────────────────────────────────────────────
+    function resetAll() {
+      departments.forEach(dept => {
+        userValues[dept.id] = dept.actual;
+        if (!dept.locked) {
+          const slider = document.getElementById(`slider-${dept.id}`);
+          const max = slider ? parseFloat(slider.max) : dept.actual * 2.2;
+          if (slider) slider.value = dept.actual;
+          const fill = document.getElementById(`fill-${dept.id}`);
+          if (fill) fill.style.width = (dept.actual / max * 100).toFixed(1) + '%';
+          const label = document.getElementById(`val-${dept.id}`);
+          if (label) { label.textContent = `$${dept.actual.toFixed(0)}M`; label.className = 'dept-user'; }
+        }
+      });
+      updateMeter(); updatePie(); updateBarChart(); updateInsights(); updateImpacts();
+    }
+
+    // ── MOBILE NAV ────────────────────────────────────────────────────────
+    document.getElementById('menu-toggle').addEventListener('click', () => {
+      document.getElementById('nav-links').classList.toggle('active');
+    });
+
+    // ── INIT ──────────────────────────────────────────────────────────────
+    buildSliders();
+    updateMeter();
+    updatePie();
+    updateBarChart();
+    updateInsights();
+    updateImpacts();
+  </script>
+</body>
+
+</html>
