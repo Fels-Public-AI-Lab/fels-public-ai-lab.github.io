@@ -2,7 +2,7 @@
   "meta": {
     "title": "Fels Public AI Lab Prompt Library",
     "description": "A curated collection of public sector AI prompts developed by Fels MPA students.",
-    "last_updated": "2025-05-01",
+    "last_updated": "2026-03-11",
     "version": "1.0"
   },
   "prompts": [
@@ -28,7 +28,7 @@
       "output_format": "Prioritization matrix with scoring rubric and weighting scheme",
       "prompt_text": "Persona / Role:\nYou are a senior transportation capital project analyst working in [state/local transportation agency]. You specialize in project evaluation and capital planning. You must ensure that project scoring methods are transparent, equitable, and data driven. You need to produce defendable, digestible data to SEPTA leadership to persuade them to fund certain projects\n\nContext:\n[City/region] is evaluating upgrades to its [transportation system]. I have attached a document that includes the [criteria, such as safety, costs, or environmental impact] for each possible investment. The evaluation period is [number of years] years.\n\nTask / Instruction:\nYour task is to evaluate the following portfolio of transportation capital projects that includes [names of transportation projects]. Then create a clear, replicable prioritization matrix grounded in core policy criteria: [list core policy criteria (e.g., safety, state of good repair, equity, environmental impact, economic development)]. The matrix must support consistent scoring, weighting, and comparison across diverse project types, and it must be usable for decision-makers and public-facing materials. When generating the prioritization matrix, you must include: definitions for criteria; what the measurable indicators are for each category; a scoring scale with descriptions of what each value represents; and a proposed weighting option scheme. The generated prioritization matrix should include the project name; each category and score; weighted subtotal; total score; and ranking. The structure should be reusable and variable.\n\nExemplar (Optional):\nReference the materials taught through six sigma training as a standard guideline: https://sixsigmastudyguide.com/project-prioritization-matrix/\n\nConstraints & Rules:\nUse plain language suitable for policymakers and the public while maintaining technical accuracy. Ensure scoring criteria are evidence-based and mode-neutral. Weightings must be adjustable, not hard-coded. Matrix must be formatted cleanly and reproducibly. Do not fabricate cost estimates or technical data unless provided by the user; use placeholders instead. Do not search the web for results.\n\nOutput Format:\nGenerate the final output that includes an overview, including the summary of criteria and weighting options; a section defining criteria and all measurable indicators; a consistent scoring scale with explanations for each score level; the weighting scheme used; a clean, copyable table with placeholder rows for each project; an explanation for how to use the matrix; and an explanation of how to apply the matrix in a decision-making context (e.g., capital budgeting, grant applications).",
       "critical_analysis": "Tested across ChatGPT 5.1, Copilot, and Gemini 2.5. Tools initially assigned safety criteria higher baseline weighting based on web searches referencing Vision Zero; a 'do not search the web' constraint was added to address this. Also refined to use placeholders rather than fabricated scores when no data is provided.",
-      "date_added": "2025-05-01",
+      "date_added": "2026-03-11",
       "submitted_by_first": "Iain",
       "submitted_by_last": "Crammond",
       "class": "MPA '26"
@@ -55,7 +55,7 @@
       "output_format": "1-2 page policy brief with executive summary, background, findings, recommendation, and conclusion",
       "prompt_text": "Persona / Role:\nYou are an experienced transportation policy analyst who specializes in translating complex technical, economic, and regulatory information into clear, actionable guidance for senior agency leadership, elected officials, and high-level decision makers. You are objective, analytical, and evidence driven. You are a skilled writer and can balance compelling, thoughtful prose with easy readability.\n\nContext:\n[City/region] is experiencing issues related to its [transportation system]. [Add more details on policy issue and why it has not been addressed]. I have attached a document that includes the aggregated research on this topic and the possible methods for addressing it. The leaders in my organization that I am sending this brief to are [insert names].\n\nTask / Instruction:\nYou will generate a decision-oriented transportation policy brief that summarizes a policy issue, evaluates evidence, presents policy options, and recommends a preferred course of action. The audience will include [list policy brief recipients]. The brief should allow leaders to quickly understand the issue, evaluate tradeoffs, and choose next steps. The brief must do the following: summarize background information; synthesize provided research (do not generate data); discuss policy options; and provide recommended actions.\n\nExemplar (Optional):\nReference the materials taught through the University of Chicago's Harris School of Public Policy Writing Workshop as a standard guideline: https://writingworkshop.harris.uchicago.edu/2024/01/24/how-to-write-a-policy-memo-that-matters/\n\nConstraints & Rules:\nThe policy brief should be no more than 1-2 pages in length; maintain a neutral, professional tone; use concise, plain language; only reference the data points that are provided or otherwise use placeholders for data; offer detailed discussion of policy options; avoid using bullet points in every section (maximum two sections with bullet points); and avoid industry jargon or technical terms without defining the terms.\n\nOutput Format:\nProduce a policy brief that contains the following labeled sections: executive summary that concludes a problem definition; background; key findings with research synthesis, stakeholder analysis, and policy options, recommendation with action items, and a conclusion.",
       "critical_analysis": "Tested across ChatGPT 5.1, Copilot, and Gemini 2.5. Early outputs were overly bullet-heavy and lacked compelling prose. Revised persona and added a constraint limiting bullet point sections to two, resulting in a better balance of readability and rigor. Outputs are now consistent across tools.",
-      "date_added": "2025-05-01",
+      "date_added": "2026-03-11",
       "submitted_by_first": "Iain",
       "submitted_by_last": "Crammond",
       "class": "MPA '26"
@@ -83,7 +83,7 @@
       "output_format": "Structured outline with Introduction, Body sections grouped by theme/methodology/chronology, and Conclusion",
       "prompt_text": "Persona / Role:\nAct as a highly detailed research analyst specializing in transportation policy and environmental impact evaluation. Your audience is transportation officials and leaders, and you must translate the analysis of complex, academic concepts into digestible concepts for a non-technical audience.\n\nContext:\n[City/region] is considering upgrades to its [transportation system]. I have attached a document that includes the details of this project, including [details such as energy sources for transportation, construction necessary for the project, current system in place]. Before approving this project proposal, the leaders in [organization] need to understand the potential environmental benefits or drawbacks of this type of project.\n\nTask / Instruction:\nYou will create a detailed outline for a literature review on the environmental and emissions impacts of [proposed transportation policy]. The outline will organize the literature by [theme, chronology, or methodology], evaluate the quality and findings of relevant research, identify trends, and highlight critical research gaps. For each [theme, chronology, or methodology], you must list key findings across studies, comparisons, and strengths and weaknesses of the literature. The groups should include [list desired groups]. You must include the links to each referenced study. Refer to [list academic journals] or similar sources when finding sources.\n\nExemplar (Optional):\nReference the materials from the Purdue OWL and the NIH as a standardized guide: https://owl.purdue.edu/owl/research_and_citation/conducting_research/writing_a_literature_review.html and https://pmc.ncbi.nlm.nih.gov/articles/PMC3715443/\n\nConstraints & Rules:\nThe sources in the literature review should be scholarly articles, such as peer-reviewed research or working papers. Use concise, professional language and include definitions when using technical terminology. Do not generate the actual literature review, only the detailed outline. Include links to all research sources cited in the outline. When evaluating the validity of a source, list reasons for or against including the research, but do not decide whether or not the source should be included.\n\nOutput Format:\nThe final output will be an outline that includes an Introduction, Body, and Conclusion. The Body sections will be grouped by chronological order, theme, or methodology. 1.) Introduction: explanation of the working topic and research thesis, its relevance in the field, and a high-level overview of the research topics. 2.) Body: each section includes research grouped under a given theme, methodology, or chronological period with key findings, analysis, and connections to the literature as a whole. 3.) Conclusion: key findings tied back to the original research question.",
       "critical_analysis": "Tested across ChatGPT 5.1, Copilot, and Gemini 2.5. Gemini initially cited blog articles and product pages rather than scholarly sources. Added a constraint specifying peer-reviewed research or working papers. Also added user-specified journal fields to improve source consistency across tools.",
-      "date_added": "2025-05-01",
+      "date_added": "2026-03-11",
       "submitted_by_first": "Iain",
       "submitted_by_last": "Crammond",
       "class": "MPA '26"
@@ -110,7 +110,7 @@
       "output_format": "Titled report with introduction, key findings, and per-factor trend sections",
       "prompt_text": "Persona / Role:\nYou are a transportation safety analyst specializing in evaluating motor vehicle crash data. You look for trends or patterns in traffic incidents and prioritize locations or transportation issues for attention.\n\nContext:\nThere are a large number of serious crashes occurring in [city/region]. The [transportation agency/department] needs to determine if there is a pattern behind these crashes in order to address the issue and prioritize funding. I have attached a dataset that includes [list each column name]. I need to understand if there are any trends in the data that could explain the crashes.\n\nTask / Instruction:\nYou will review a dataset of crash records that includes [list variables, such as location, roadway characteristics, involved vehicle types, demographic information, weather conditions, or driver impairment]. Your task is to create an objective analysis of trends or patterns in the crash data without assigning causation. Use [specific calculation] when analyzing the data. You will then summarize trends as they relate to the provided variables. Note when the data is incomplete or inconsistent.\n\nExemplar (Optional):\nN/A\n\nConstraints & Rules:\nDo not infer or imply causation. Base all insights solely on the provided data. Do not provide qualitative analysis. Quantify patterns when possible (percentages, counts, comparisons). The analysis should consider and list all contributing factors, not just the most prominent ones. If there is missing, ambiguous, or limited data, note that there is an issue with the data and do not create values. Use neutral, technical, and policy-appropriate language. Provide all formulas used.\n\nOutput Format:\nThe generated report should be titled to match the provided dataset. There should be an introduction that includes how the data was analyzed and any key findings. Include a concise section on each contributing factor for which you found evidence of a pattern or trend (location, demographics, impairment/condition, or vehicle type).",
       "critical_analysis": "Tested with DVRPC crash data. Results varied most across tools of all prompts tested \u2014 each tool latched on to a different contributing factor. Added user-specified calculation fields and a rule requiring all contributing factors to be addressed, not just the most prominent. Results will still vary by dataset complexity but outputs are now more bounded.",
-      "date_added": "2025-05-01",
+      "date_added": "2026-03-11",
       "submitted_by_first": "Iain",
       "submitted_by_last": "Crammond",
       "class": "MPA '26"
@@ -137,7 +137,7 @@
       "output_format": "Press release with headline, sub-headline, dateline, lead paragraph, body, boilerplate, and media contact",
       "prompt_text": "Persona / Role:\nAct as a public relations consultant specializing in [professional field]. You communicate with the general public using clear, concise language.\n\nContext:\nThe [organization] in [location] is announcing a new initiative targeting [subject area] that will likely impact a large number of residents. It is crucial for this press release to disseminate information in an objective manner that will not lead to any confusion. I have uploaded supporting documents with technical details on the project.\n\nTask / Instruction:\nYou will provide a professional press release to inform constituents and stakeholders in [region] regarding [project name]. The press release must be written using plain language and answer the who, what, where, why, and how of the announcement. The language should be compelling and engaging while remaining professional and objective.\n\nExemplar (Optional):\nReference the materials from the Purdue OWL as a standardized guide: https://owl.purdue.edu/owl/subject_specific_writing/journalism_and_journalistic_writing/press_releases.html\n\nConstraints & Rules:\nThe press release must contain: a clear, informative headline; strong sub-headline; a dateline with city and release date; a lead paragraph answering who, what, when, where, why, and how; body paragraphs with background/context and placeholders for key data points; a placeholder for a leadership quote; public impact statement; public instructions for next steps; a boilerplate with a brief agency description; and media contact information.\n\nOutput Format:\nThe final output should be a Word document in Calibri font entitled PRESS_RELEASE.docx.",
       "critical_analysis": "Tested with a SEPTA zero-emission bus transition scenario. ChatGPT initially produced a stilted, dry press release while Copilot and Gemini produced more polished drafts. Added language to the task section requiring compelling and engaging writing, which improved ChatGPT output significantly. All tools now produce consistent, usable first drafts.",
-      "date_added": "2025-05-01",
+      "date_added": "2026-03-11",
       "submitted_by_first": "Iain",
       "submitted_by_last": "Crammond",
       "class": "MPA '26"
@@ -163,7 +163,7 @@
       "output_format": "Instructor-facing outline with timestamps, question ladder, activity instructions, misconceptions list, exit ticket, and comprehension checks",
       "prompt_text": "Persona / Role:\nPhilosophy and Ethical Reasoning instructor, with no teaching experience, facilitating a mixed-rank novice classroom; time-boxed, outcome-driven; emphasizing respectful dialogue.\n\nContext:\nLesson focus: Socrates' defense of philosophy; audience: first-year college students new to philosophy; session length: 75 minutes; reading: Plato, Apology; classroom norms: rank-neutral discussion; room: whiteboard and projector. Learning objectives: Explain Socrates' view of philosophy; explain the relationship between the philosopher and the political community according to Plato's Apology; describe Socrates' arguments rebutting the old and new accusations against him.\n\nTask / Instruction:\nProduce a 75-minute lesson plan with: (1) 5-min opener that activates prior beliefs about 'what a philosopher does'; (2) a ladder of 9 Socratic questions (foundational, probing, then transfer to Army context); (3) two short activities (think-pair-share; quick role-play of jury deliberation); (4) misconceptions to watch for; (5) a 1-minute exit ticket tied to learning objectives.\n\nExemplar (Optional):\nOpener prompt: \"Who is a philosopher according to Socrates, and why does that matter for military leadership?\" Exit ticket: \"State one claim from Socrates and one reason you found persuasive or not.\"\n\nConstraints & Rules:\nPlain language (Grade 8-10). Time-stamp each segment. Rank-neutral facilitation tactics (rotate speakers, time-limited turns). No legal advice. Include accessibility notes (alt text for slides, microphone use).\n\nOutput Format:\nInstructor-facing outline with timestamps; question ladder; activity instructions; list of misconceptions and corrections; exit ticket prompt; 3 quick checks for understanding.",
       "critical_analysis": "Adding 'no teaching experience' to the persona was critical \u2014 without it, the tool assumed professional instructor context. Time allocation across segments was initially uneven; testing and iteration improved pacing. The accessibility notes were a useful addition that the tool incorporated well.",
-      "date_added": "2025-05-01",
+      "date_added": "2026-03-11",
       "submitted_by_first": "Marshay",
       "submitted_by_last": "Harris",
       "class": "MA Phil.'26"
@@ -189,7 +189,7 @@
       "output_format": "Student worksheet and instructor answer key with full scenarios included",
       "prompt_text": "Persona / Role:\nPhilosophy and Ethical Reasoning Instructor designing a worksheet plus an answer key for in-class or homework use.\n\nContext:\nLesson focus: basic logical structures (terms, premises, arguments), Modus Ponens/Modus Tollens, and invalid forms; Audience: first-year cadets; 10 fallacies covered: Equivocation, Straw Man, Begging the Question, Ad Hominem, Appeal to Authority, Appeal to Ignorance, Appeal to Emotion, Faulty Analogy, Hasty Generalization, Post Hoc ergo Propter Hoc.\n\nTask / Instruction:\nCreate 15 items: (A) 6 argument reconstructions from short passages; (B) 4 form IDs (Modus Ponens, Modus Tollens, Denying Antecedent [invalid], Affirming Consequent [invalid]); (C) 5 fallacy hunts drawn from everyday barracks/training scenarios. Provide fully worked solutions and brief explanations (40 words or fewer each).\n\nExemplar (Optional):\nExample fallacy hunt: \"Because the last three inspections failed after late chow, late chow causes inspection failures.\" Answer: post hoc.\n\nConstraints & Rules:\nUse lesson vocabulary: Premise or Proposition, Argument, Validity, Inductive, Deductive, Fallacy. Separate validity from truth in explanations. Keep scenarios non-identifying and rank-neutral. Avoid trick questions that rely on obscurity rather than reasoning.\n\nOutput Format:\nStudent worksheet (numbered items) and instructor key (numbered items). Include the full questions and scenario on the answer key.",
       "critical_analysis": "Initial answer key truncated scenarios rather than including them in full. Added explicit instruction to include complete scenario text on the answer key. Tool handled the logical form identification and fallacy examples well with appropriately context-specific military/cadet scenarios.",
-      "date_added": "2025-05-01",
+      "date_added": "2026-03-11",
       "submitted_by_first": "Marshay",
       "submitted_by_last": "Harris",
       "class": "MA Phil.'26"
@@ -215,7 +215,7 @@
       "output_format": "3 micro-cases with guided questions, answer outline, and mini-rubric for group report-out",
       "prompt_text": "Persona / Role:\nPhilosophy and Ethical Reasoning Instructor creating short cases and guided questions for seminar use.\n\nContext:\nAudience: first-year cadets; readings: Nicomachean Ethics Books I, II, VIII; session length: 50-75 minutes; desired outcomes: identify virtues, locate the mean, and reason with exemplar guidance.\n\nTask / Instruction:\nGenerate 3 micro-cases (200-300 words each) tied to novice life (e.g., honesty vs loyalty in peer reports; training intensity vs injury; social media self-promotion). For each: define key terms, identify the relevant virtues/vices, locate the mean for two different agents, and propose prudent-person actions. Add 3 discussion prompts per case.\n\nExemplar (Optional):\nCase: a plebe exaggerates volunteer hours to look competitive. Prompts: which virtues are at stake; what is the excess/deficiency; how would a prudent exemplar act?\n\nConstraints & Rules:\nNo stereotyping or real names. Keep virtue terms consistent with text. Include a 'friendship type' note when relationships drive the tension. Reading level Grade 9-10.\n\nOutput Format:\nCase set with guided questions; answer outline with key concepts; mini-rubric for a 6-8 minute small-group report-out.",
       "critical_analysis": "Output was realistic and appropriately accessible for freshmen. Cases generated relatable moral dilemmas and the Grade 9-10 reading level constraint helped significantly with tone. Reviewer with direct knowledge of the Nicomachean Ethics noted that the material was well-handled for the introductory level.",
-      "date_added": "2025-05-01",
+      "date_added": "2026-03-11",
       "submitted_by_first": "Marshay",
       "submitted_by_last": "Harris",
       "class": "MA Phil.'26"
@@ -241,7 +241,7 @@
       "output_format": "Pocket card, reflection prompts, class debrief guide, and 50-minute discussion script",
       "prompt_text": "Persona / Role:\nPhilosophy and Ethical Reasoning Instructor facilitating a brief workshop plus a 48-hour micro-experiment.\n\nContext:\nAudience: first-year cadets; reading: Epictetus Encheiridion; constraints: non-clinical classroom; focus on performance and character.\n\nTask / Instruction:\nProvide 3 realistic stressors (e.g., schedule changes, peer criticism, inspection surprises). For each: classify externals/internals; write a reframing script; specify 1-2 appropriate actions aligned with roles; design a 48-hour practice and a reflection prompt. Address the following discussion questions: Who is a philosopher according to Epictetus? Is his idea of philosophy surprising? Why or why not? Military officers have found affinity with Stoic philosophy \u2014 is such an affinity warranted? Epictetus claims we ought to perform our role excellently but that our role is chosen by someone else \u2014 is this true?\n\nExemplar (Optional):\nStressor: last-minute formation change. Reframe: 'The schedule is external; my punctuality and prep are internal.' Appropriate action: prep kit the night before; confirm updates at T-60.\n\nConstraints & Rules:\nUse Epictetus vocabulary (appearance, ruling principle). No therapy or medical claims. Respect privacy. Keep actions safe and lawful.\n\nOutput Format:\nOne-page pocket card (stressor to control analysis to actions); reflection prompts; class debrief guide; discussion script over a 50-minute class.",
       "critical_analysis": "Small group work time was initially too long for a single stressor \u2014 revised to include two stressors per group segment. Exit ticket generated strong ideas for boosting cadet confidence at lesson close. The prompt required more instructor research than others given the Stoics are less commonly taught.",
-      "date_added": "2025-05-01",
+      "date_added": "2026-03-11",
       "submitted_by_first": "Marshay",
       "submitted_by_last": "Harris",
       "class": "MA Phil.'26"
@@ -267,7 +267,7 @@
       "output_format": "Per-scenario table with maxim, CI1, CI2, duty type, and alternative; instructor key; two-day discussion script",
       "prompt_text": "Persona / Role:\nPhilosophy and Ethical Reasoning Instructor building an applied analysis worksheet with key, with no teaching experience.\n\nContext:\nAudience: first-year cadets with no philosophy experience; readings: Grounding, Preface-Section 2; scenarios: everyday choices (truthfulness, promise-keeping, respect for persons).\n\nTask / Instruction:\nProvide 5 scenarios. For each: state a plausible maxim; run the universalizability test (CI1); run the humanity-as-end test (CI2); identify duty type (perfect/imperfect); propose a duty-respecting alternative if the maxim fails.\n\nExemplar (Optional):\nScenario: padding hours on a team log. Maxim: 'When it benefits my team, I record unearned hours.' CI1 result: contradiction in conception; CI2: treats others as means. Duty: perfect \u2014 do not lie.\n\nConstraints & Rules:\nAvoid consequentialist reasoning in justifications. Keep language neutral and rank-agnostic. Cite definitions exactly where used. All content should be at a Grade 10 reading level.\n\nOutput Format:\nTable per scenario with columns for maxim, CI1 result, CI2 result, duty type, and alternative; instructor key with brief rationales (40 words or fewer). A discussion plan covering all material over 2 days.",
       "critical_analysis": "Kant's complexity made minute-by-minute blocking harder than earlier lessons. Specifying a two-day lesson and Grade 10 reading level with no prior philosophy experience improved output substantially. Still the most difficult lesson of the sequence to generate reliably \u2014 may benefit from additional context about cadet background.",
-      "date_added": "2025-05-01",
+      "date_added": "2026-03-11",
       "submitted_by_first": "Marshay",
       "submitted_by_last": "Harris",
       "class": "MA Phil.'26"
@@ -293,7 +293,7 @@
       "output_format": "Markdown table with Vendor Name, 10-Year TCO, and Net Present Value columns",
       "prompt_text": "Persona / Role:\nAct as a meticulous public sector procurement officer with deep expertise in financial analysis and Total Cost of Ownership (TCO) modeling.\n\nContext:\nMy city is evaluating three vendor proposals for a new emergency communications system. I have attached a document with the cost breakdown from each vendor. Our evaluation period is 10 years, and our finance department uses a discount rate of 4% for calculating Net Present Value (NPV).\n\nTask / Instruction:\nFor each of the three vendors, calculate the 10-year TCO. Your model must include initial capital costs, annual software licensing fees, estimated annual maintenance costs, and one-time training costs. Then, calculate the NPV for each vendor's 10-year TCO.\n\nExemplar (Optional):\nN/A\n\nConstraints & Rules:\nAssume an annual inflation rate of 2% for all recurring costs. All calculations must be shown. Do not make a qualitative judgment or recommend one vendor over another; present only the financial data.\n\nOutput Format:\nPresent the final output as a single, clean Markdown table with the following columns: 'Vendor Name', '10-Year TCO', and 'Net Present Value (NPV)'.",
       "critical_analysis": "A strong example prompt for the library \u2014 standardized, public-administration focused, and produces reliable outputs when full vendor cost data is provided. Best used when cost breakdowns are attached as a document.",
-      "date_added": "2025-05-01",
+      "date_added": "2026-03-11",
       "submitted_by_first": "Lucas",
       "submitted_by_last": "Huan",
       "class": "MPA '26"
@@ -318,7 +318,7 @@
       "output_format": "Structured prompt following the PCTEICO framework, ready to paste into an AI tool",
       "prompt_text": "Persona / Role:\nAdopt the perspective of a Generative AI tool supporting a [role] in [organisation] operating within [administrative environment]. The user will define: Role (e.g. Director-General, Deputy Secretary, Agency Head); seniority level; policy/administrative tradition (e.g. Westminster, civil law, hybrid).\n\nContext:\nThe senior public sector leaders are very informed and are extremely sharp and critical when leading in the public service. Help them out by generating in-depth prompts that they can use to further refine their queries and challenge their thinking. For user to update: what sort of political constraints, time periods, budgets, etc. they require.\n\nTask / Instruction:\nGenerate an in-depth prompt that follows the following format: 1. Prompt Name; 2. Objective of the prompt; 3. Persona/Role; 4. Context of the prompt; 5. Task/Instructions; 6. Exemplar (optional); 7. Constraints/Rules; 8. Output format.\n\nConstraints & Rules:\nThe prompt is about [insert topic]. The big problem I want to address is [insert issue]. I want the prompt to be [insert focus]. The explicit assumptions I want the prompt to explore or make visible are: [assumptions]. I want this prompt to have [insert tone]. RULE: Must surface what GenAI is inferring and flag missing important information. RULE: Must suggest alternative opinions that challenge the user's current views. RULE: Must be realistic and request additional data if needed. RULE: Reflect typical public-sector limitations such as budget cycles, accountability structures, and inter-agency dependencies. RULE: Limit clarification requests to the most critical missing elements.\n\nOutput Format:\nPresent the final prompt ready to be inputted into a generative AI tool. User may select: Simplified, concise prompt (short summary format) OR In-depth, highly specific prompt (explicit coverage of assumptions, trade-offs, risks, implementation pathways, and alternate views).",
       "critical_analysis": "Tested extensively through multiple iterations. The prompt is diagnostic in nature \u2014 it forces leaders to think through their own assumptions when filling in the template. Versatile across policy domains and agency types. The student noted particular pride in this prompt for its modular, self-challenging design.",
-      "date_added": "2025-05-01",
+      "date_added": "2026-03-11",
       "submitted_by_first": "Lucas",
       "submitted_by_last": "Huan",
       "class": "MPA '26"
@@ -344,7 +344,7 @@
       "output_format": "Structured exercise with Scenario Overview, Threat Actor Profile, Timeline of Injects, Key Decision Points, Cross-Agency Dependencies, Institutional Vulnerabilities, Debriefing Guide, and Performance Metrics",
       "prompt_text": "Persona / Role:\nYou are a senior crisis-planning and red-teaming specialist experienced in government operations, strategic foresight, inter-agency coordination, and national-level incident response.\n\nContext:\nThe exercise is intended for senior leaders, policy officers, and operational commanders within public sector agencies.\n\nTask / Instruction:\nWhen given the agency name and context, generate a full red-teaming tabletop exercise with: A. Scenario Overview (high-stress, multi-stage, with triggers, escalation paths, and uncertainty factors); B. Threat Actor Profile (motivations, capabilities, constraints, tactics \u2014 no real classified entities); C. Timeline of Injects (8-15 injects with pressure point, expected trade-offs, and hidden complications); D. Key Decision Points (decisions under pressure with consequences and opportunity costs); E. Cross-Agency Dependencies (communication bottlenecks and friction points); F. Institutional Vulnerabilities (operational, policy, governance, legal, and communications weak points); G. Debriefing Guide (full after-action review template with policy gaps, SOP improvements, and long-term risks); H. Performance Metrics (qualitative and quantitative evaluation criteria).\n\nConstraints & Rules:\nDo not use real classified, sensitive, or unverifiable intelligence. Avoid referencing real individuals or real-world incidents that could mislead. Ensure scenario realism without predicting imminent disasters. Keep details consistent with public-sector structures. Always identify assumptions when context is missing. If context is insufficient, list exact details needed before generating.\n\nOutput Format:\n1. Scenario Overview; 2. Threat Actor Profile; 3. Scenario Timeline & Injects; 4. Key Decision Points; 5. Cross-Agency Dependencies; 6. Institutional Vulnerabilities; 7. Debriefing Guide (AAR Template); 8. Performance Metrics; 9. Optional Mini-Example.",
       "critical_analysis": "Strong for scenario generation and structured discussion. Works best when agency mandate and context are clearly provided. As noted in testing, the generated injects may not target the deepest organizational assumptions unless the user has also run the meta-prompt (ID 012) to sharpen the brief first.",
-      "date_added": "2025-05-01",
+      "date_added": "2026-03-11",
       "submitted_by_first": "Lucas",
       "submitted_by_last": "Huan",
       "class": "MPA '26"
@@ -370,7 +370,7 @@
       "output_format": "Structured plan with Problem Framing, Current State Assessment, Outcomes, Improvement Strategies, Performance Framework, Implementation Roadmap, Equity Considerations, and Risk Analysis",
       "prompt_text": "Persona / Role:\nYou are an experienced public-sector service-design strategist with deep expertise in operations, policy implementation, human-centered design, and data analytics. You advise senior leaders and operational managers on how to transform service delivery while navigating political, fiscal, and institutional constraints.\n\nContext:\nThe user will specify the frontline agency, service domain, and any operational or political considerations. The target audience includes senior leaders and operational supervisors responsible for frontline delivery. The plan must be realistic for a government environment, acknowledging constraints such as staffing limits, legacy systems, regulatory requirements, and union considerations. The plan should reflect equity principles, ensuring accessibility improvements address needs of vulnerable groups (e.g. persons with disabilities, low-income households, seniors, migrants, caregivers, digitally excluded groups).\n\nTask / Instruction:\nWhen provided with the agency name, service type, and local context, generate a service-delivery improvement plan covering: A. Problem Framing; B. Current State Assessment; C. Priority Outcomes & Success Measures; D. Improvement Strategies (process redesign, accessibility, technology, staffing, policy); E. Data & Performance-Monitoring Framework; F. Implementation Roadmap (0-3 months, 3-12 months, 12-36 months); G. Equity & Accessibility Considerations; H. Risks & Mitigation Strategies.\n\nConstraints & Rules:\nAvoid vague recommendations \u2014 all proposals must be specific and actionable. Do not fabricate real statistics, laws, programs, or individuals. Identify assumptions where context is incomplete. Ensure recommendations reflect realistic public-sector constraints. Accessibility improvements must address both physical and digital inclusion. All suggestions must be neutral and non-political.\n\nOutput Format:\n1. Problem Framing; 2. Current State Assessment; 3. Priority Outcomes & Success Measures; 4. Improvement Strategies; 5. Data & Performance-Monitoring Framework; 6. Implementation Roadmap; 7. Equity & Accessibility Considerations; 8. Risks & Mitigation Strategies.",
       "critical_analysis": "Best used when the user already has a clear picture of the problem and needs structured implementation guidance. If the user is still exploring options, a broader scoping prompt should be run first. The equity lens and built-in accessibility requirements are the strongest features of this prompt.",
-      "date_added": "2025-05-01",
+      "date_added": "2026-03-11",
       "submitted_by_first": "Lucas",
       "submitted_by_last": "Huan",
       "class": "MPA '26"
@@ -396,7 +396,7 @@
       "output_format": "Structured analysis with Program Overview, Cost Structure, Cost Projections, Alternative Options, Cost-Effectiveness Evaluation, Fiscal Risks, Mitigation Strategies, and Recommendation",
       "prompt_text": "Persona / Role:\nYou are a senior public-sector budget analyst with expertise in fiscal policy, economic appraisal, long-term cost modeling, and program evaluation. You support deputy-secretary and director-level decision-makers who need clear, analytically sound, non-political advice.\n\nContext:\nThe user will specify the proposed program, policy objective, target population, scope, and any fiscal constraints. The analysis must reflect the realities of government budgeting: limited resources, medium-term expenditure frameworks, personnel and procurement costs, legislative constraints, and multi-agency dependencies. The output must be decision-ready: structured, cautious with assumptions, and explicit about uncertainties.\n\nTask / Instruction:\nWhen provided with the program description and context, generate a comprehensive budget analysis covering: A. Program Overview & Fiscal Problem Definition; B. Cost Structure & Assumptions (all cost categories and key assumptions); C. Scenario-Based Cost Projections (baseline, high-cost/stress, low-cost/optimistic); D. Alternative Options Analysis (at least two alternatives with trade-offs); E. Cost-Effectiveness Evaluation (cost per outcome, distributional effects); F. Fiscal Risks & Sensitivities (risk table with likelihood, impact, and exposure); G. Risk-Mitigation Strategies (safeguards, phased rollouts, monitoring indicators); H. Recommendation & Decision Pathways.\n\nConstraints & Rules:\nDo not fabricate real statistics, laws, or agency budgets. All assumptions must be transparent. Avoid vague statements \u2014 provide specific and actionable analysis. Use qualitative estimates when quantitative data is absent, but signal the limitations. Maintain a neutral, non-political stance. Reflect public-sector fiscal constraints realistically.\n\nOutput Format:\n1. Program Overview & Fiscal Problem Definition; 2. Cost Structure & Assumptions; 3. Cost Projections (Short-, Medium-, Long-term); 4. Alternative Options Analysis; 5. Cost-Effectiveness Evaluation; 6. Fiscal Risks & Sensitivities; 7. Risk-Mitigation Strategies; 8. Recommendation & Decision Pathways.",
       "critical_analysis": "Highly structured and comprehensive. Works best when detailed program information is provided \u2014 the prompt can hallucinate when given minimal context due to its rigid and demanding structure. Most reliable when used similarly to the assignment 2 EV bus scenario where full requirements and assumptions are specified upfront.",
-      "date_added": "2025-05-01",
+      "date_added": "2026-03-11",
       "submitted_by_first": "Lucas",
       "submitted_by_last": "Huan",
       "class": "MPA '26"
@@ -425,7 +425,7 @@
       "output_format": "Word document titled 'INTERNAL MEMO [public health concern] Response Strategy'",
       "prompt_text": "Persona / Role:\nAct as a [public health administrator] responding to an emerging [health] concern within a government agency. Use a calm, empathetic, accurate, and solutions-oriented voice grounded in [public health] practice. Maintain a professional tone suitable for internal leadership communications.\n\nContext:\nAn emerging [public health] concern has arisen: [concern]. This memo needs to summarize the current situation: [situation overview].\nKnown information includes: [knowns].\nUnknowns and uncertainties include: [unknowns].\nCurrent strategy or response: [strategy].\nNear-term next steps: [next steps].\n\nIf relevant, include operational constraints, affected populations, jurisdictional responsibilities, or external partners: [additional context].\n\nTask / Instruction:\nDraft a one-page internal memo that:\n\u2022 Provides a clear, accurate overview of the situation.\n\u2022 Distinguishes known facts from uncertainties.\n\u2022 Frames risk without inflating it.\n\u2022 Summarizes the team's operational strategy and rationale.\n\u2022 Outlines recommended next steps, including decision points requiring leadership input.\n\u2022 Identifies any equity considerations, communications concerns, or interagency dependencies.\nAddress the memo to [contacts] and copy [copied contacts]. The memo is from [your name, title].\nAdd an AI transparency line at the end indicating the memo was drafted with assistance from AI.\n\nExemplar (Optional):\nN/A\n\nConstraints & Rules:\nThe memo should fit on one page.\nUse accessible language suitable for cross-departmental leadership.\nDo not add outside facts; rely solely on the information provided in the prompt.\n\nOutput Format:\nProduce an editable Word document titled: \"INTERNAL MEMO [public health concern] Response Strategy\".",
       "critical_analysis": "Tested in ChatGPT (prompt refinement), Claude, and Gemini. Key lessons: the prompt is only as strong as the situational inputs provided. Claude generated HTML output that downloaded as a multi-page PDF despite the one-page constraint \u2014 the constraint language was tightened to fix this. The original draft also omitted a 'from' field for the sender; this was added after testing. Final version tested in Gemini with satisfactory results.",
-      "date_added": "2025-05-01",
+      "date_added": "2026-03-11",
       "class": "MPA '26"
     },
     {
@@ -451,7 +451,7 @@
       "output_format": "Email body draft with structured Trend / Evidence / Implications / Notes sections",
       "prompt_text": "Persona / Role:\nAct as a [public health administrator] in a [managerial] role responsible for reviewing analytic summaries before they reach senior leadership. Maintain a professional, concise tone appropriate for internal government communication. Focus on accuracy, clarity, and practical relevance.\n\nContext:\nYou have the attached dataset. Your task is to independently verify the trends originally summarized by a junior analyst. You have limited time and need a clear, defensible interpretation based solely on the data provided. After verification, insights will be communicated to management via email.\n\nTask / Instruction:\nInterpret the dataset and identify 1\u20133 meaningful trends relevant to a [public health] agency.\nFor each trend:\n\u2022 State the trend clearly (e.g., \"Hospitalizations are increasing among adults 65+\").\n\u2022 Describe what in the data supports the trend.\n\u2022 Explain what the trend likely means for residents of [state/jurisdiction] from a [public health] perspective (e.g., service demand, risk level, resource planning).\n\u2022 Note any limitations or uncertainties visible in the dataset (e.g., missing data, short time window, unusual fluctuations).\n\nAfter presenting the trends, briefly describe the analytic steps used so leadership can understand how the conclusions were reached.\n\nExemplar (Optional):\nN/A\n\nConstraints & Rules:\nRely exclusively on the dataset provided in the prompt \u2014 no external facts or assumptions.\nDo not speculate beyond what the data directly supports.\nFlag inconsistencies or data quality concerns.\nKeep the output highly skimmable and decision-oriented.\n\nOutput Format:\nUse this formatting structure for the final output as an email body draft:\nTrend 1: [one-sentence description]\nEvidence: [what in the data supports it]\nImplications: [what it means for the state/jurisdiction]\nNotes/Limitations: [constraints, gaps, caveats]\n\nRepeat for Trends 2 and 3, if applicable.\n\nEnd with a brief section titled \"How the Trends Were Identified\" summarizing the analytic logic.",
       "critical_analysis": "Tested in ChatGPT (refinement) and Gemini with a mock Excel disaster response dataset for easy verification. Claude could not accept .csv or Excel attachments on the free tier. Output format and context were revised to frame results as an email draft to management, which better reflects real-world use. Further testing with complex datasets requiring nuanced statistical analysis is recommended.",
-      "date_added": "2025-05-01",
+      "date_added": "2026-03-11",
       "class": "MPA '26"
     },
     {
@@ -477,7 +477,7 @@
       "output_format": "Word-formatted report (5 pages or fewer) with Executive Summary, Background, Scenario Analysis, Implications, and References",
       "prompt_text": "Persona / Role:\nAct as a [public health administrator] preparing a forward-looking briefing for [senior leadership]. Use a professional tone appropriate for internal government reports. Focus on clarity, methodological transparency, and realistic implications for [population health] and state [health] systems.\n\nContext:\nYou are provided the following emerging trend: [trend].\nBackground data supporting this trend: [data].\nSenior leadership seeks a clear understanding of how the continuation of this trend could affect [public health], [health systems], and government [public health] operations in [state/jurisdiction] over the next five years.\n\nTask / Instruction:\nConduct a scenario analysis based on the trend and data provided.\nProduce three scenarios \u2014 baseline, optimistic, and challenging \u2014 each grounded in explicit assumptions. For each scenario, describe:\n\u2022 Expected impacts on [population health] outcomes.\n\u2022 Expected impacts on [health systems] (workforce, hospitals, public health infrastructure, emergency response).\n\u2022 Equity considerations (who is most affected and how disparities may widen or narrow).\n\u2022 Operational implications for the [health] department (resource needs, partnerships, risk communication, surveillance).\n\nAfter presenting all scenarios, include a short section titled \"How This Scenario Analysis Was Conducted\" explaining the analytic reasoning, the assumptions used, and the limits of what can be inferred.\n\nExemplar (Optional):\nN/A\n\nConstraints & Rules:\nIf referencing outside research, cite it clearly, and rely only on peer-reviewed or widely recognized scientific sources.\nDo not introduce assumptions that conflict with the provided data.\nAvoid false precision \u2014 use ranges and uncertainty notes where appropriate.\nMaintain analytic neutrality; do not advocate for a policy unless requested.\n\nOutput Format:\nProduce the final product as a Word-formatted report (five pages or fewer) with the following structure:\nExecutive Summary\nBackground (trend + data)\nScenario Analysis (baseline \u2192 optimistic \u2192 challenging)\nImplications for [state/jurisdiction]\nHow the Scenario Analysis Was Conducted\nReferences (if applicable)",
       "critical_analysis": "Tested at the Governor's Office level with mock vaccination data in Gemini. Gemini defaulted to Deep Research (opted out for testing). Gemini supplemented weak mock data with credible scientific and academic research, producing a comprehensive analysis \u2014 a feature to be aware of when tighter data boundaries are needed. Prompt should be tightened if less reliance on outside research is desired. Claude could not accept data file attachments on the free tier.",
-      "date_added": "2025-05-01",
+      "date_added": "2026-03-11",
       "class": "MPA '26"
     },
     {
@@ -504,7 +504,7 @@
       "output_format": "One-page double-sided Word briefing titled '[Topic] Brief'",
       "prompt_text": "Persona / Role:\nAct as a [senior public health administrator] serving as a liaison between the [State Department of Health] and the [State Governor's Office]. Maintain a concise, neutral, professional tone suitable for intergovernmental communication. Focus on clarity, accuracy, and policy relevance.\n\nContext:\nYou are preparing briefing materials for the [Governor's Office] that summarizes the attached technical report. The goal is to translate the attached technical report into a short, skimmable briefing that can be understood by non-technical executive staff.\n\nTask / Instruction:\nTransform the technical report into a one-page (double-sided) briefing document that includes:\n\u2022 A plain-language summary of the issue, its significance, and current status.\n\u2022 The 3\u20135 most important insights from the report, written for a non-technical audience.\n\u2022 Implications for [state residents], [state] agencies, and any policy considerations.\n\u2022 A back-page section with contact information and references to the original report.\n\nEnsure the briefing is highly skimmable \u2014 with headers, short paragraphs, and bullet points. Avoid jargon unless defined clearly.\n\nExemplar (Optional):\nN/A\n\nConstraints & Rules:\nDo not add outside information. Base all content solely on the attached technical report unless the prompt includes supplemental material.\nDo not speculate beyond what the report supports.\nPrioritize what senior leadership must know immediately over background detail.\nUse neutral, accessible language that avoids technical complexity.\n\nOutput Format:\nProduce the final output as a one-page (double-sided) Word-format briefing titled: \"[Topic] Brief\".",
       "critical_analysis": "Tested with a 65-page energy economics report, assuming the role of Senior Energy Policy Advisor. Claude generated a strong summary but could not produce a downloadable Word file \u2014 it recommended copy/paste into Word. Gemini had the same limitation. ChatGPT is the recommended tool for this prompt if a directly downloadable Word document is required. Content quality was strong across all three tools.",
-      "date_added": "2025-05-01",
+      "date_added": "2026-03-11",
       "class": "MPA '26"
     },
     {
@@ -532,8 +532,146 @@
       "output_format": "Three separate translated documents with matching structure and an accessibility footer disclaimer",
       "prompt_text": "Persona / Role:\nAct as a [public health communications specialist] preparing multilingual public communications for the [State Department of Health]. Write with a clear, professional tone suitable for statewide public messaging.\n\nContext:\nThe public communication/announcement must be accessible to the diverse residents of [state]. The [Department of Health] needs this English document translated into the top three non-English languages spoken in [state].\n\nTask / Instruction:\nIdentify the top three languages spoken in [state] besides English using the most recent U.S. Census Bureau ACS 5-year estimates or state-published LEP language data.\nTranslate the attached public communication/announcement into those three languages.\nUse established public health terminology in each target language when available; if none exists, choose the clearest non-technical equivalent.\nEnsure translations reflect culturally appropriate phrasing while preserving meaning, tone, and intent.\nMaintain the original structure, sequence, and emphasis of the English document.\n\nExemplar (Optional):\nN/A\n\nConstraints & Rules:\n\u2022 Do not add new content, warnings, or examples not in the English version.\n\u2022 Keep the translations clear and accessible; simplify only to the extent that accuracy is preserved.\n\u2022 Maintain consistency in formatting across all versions.\n\u2022 Use a respectful, community-appropriate tone.\n\nOutput Format:\nProduce three separate translations \u2014 one for each translated language \u2014 using corresponding headings and structure from the English version. Include a footer disclaimer:\n\"This translation is provided for accessibility. The English version is the authoritative text.\"",
       "critical_analysis": "Language identification from Census Bureau data worked correctly across Claude and Gemini. Original prompt attempted to generate translated flyer images \u2014 GenAI tools could not produce these, so the prompt was scoped to text-only translations. In practice, translated text would need to be passed to a design/communications team to apply to the original graphic template. Future iterations may explore AI image generation for this workflow if agency policy permits.",
-      "date_added": "2025-05-01",
+      "date_added": "2026-03-11",
       "class": "MPA '26"
+    },
+    {
+      "id": "021",
+      "title": "AI Governance Risk Assessment Framework",
+      "description": "Standardize evaluation and mitigation of risks in public-sector AI systems before procurement, deployment, or renewal.",
+      "category": "AI Governance",
+      "tags": [
+        "AI governance",
+        "risk assessment",
+        "ethics",
+        "procurement",
+        "AI policy",
+        "NIST AI RMF",
+        "fairness",
+        "bias"
+      ],
+      "output_format": "Markdown table with columns: Risk Area | What to Check | Evidence/Indicator | Score (1\u20135) | Mitigation/Owner",
+      "prompt_text": "Persona / Role:\nYou are a government AI governance advisor versed in NIST AI RMF 1.0/1.1, ISO/IEC 42001, and MITRE ATLAS.\n\nContext:\nA state human services agency plans to deploy an eligibility-screening model. Leadership wants a concise, reusable assessment to surface ethics, legal, safety, and operational risks before launch.\n\nTask / Instruction:\nDraft a risk assessment template with fields and rating guidance for: fairness/bias, privacy & security, transparency & explainability, robustness & drift, human oversight, and incident response. Include example indicators and a scoring rubric.\n\nExemplar (Optional):\nExample indicator for fairness: \u201cDemographic parity difference < 0.1 across protected classes\u201d. Example oversight: \u201cDocumented human-in-the-loop adjudication for adverse decisions\u201d.\n\nConstraints & Rules:\nPlain language; measurable criteria; one page; scoring scale 1\u20135 with definitions; reference at least one framework; suitable for non-technical reviewers.\n\nOutput Format:\nMarkdown table with columns: Risk Area | What to Check | Evidence/Indicator | Score (1\u20135) | Mitigation/Owner.",
+      "critical_analysis": "By embedding a uniform, rubric-based review up front, the agency reduces downstream harm, accelerates approvals, and creates an auditable record of due diligence.",
+      "date_added": "2026-03-11",
+      "submitted_by_first": "Forrest",
+      "submitted_by_last": "Pascal",
+      "class": "EMPA '26"
+    },
+    {
+      "id": "022",
+      "title": "Smart City Operations\u2014Predictive Maintenance Playbook",
+      "description": "Improve reliability and cost efficiency for city assets (fleet, streetlights, HVAC, pumps) using predictive analytics.",
+      "category": "Smart City",
+      "tags": [
+        "smart city",
+        "predictive maintenance",
+        "IoT",
+        "operations",
+        "data analytics",
+        "MLOps",
+        "public works",
+        "infrastructure"
+      ],
+      "output_format": "Sectioned outline with short bullets plus one summary table: Phase | Activities | Owners | Exit Criteria",
+      "prompt_text": "Persona / Role:\nYou are a smart city operations strategist advising Public Works and Transportation.\n\nContext:\nThe city is replacing time-based maintenance with condition-based maintenance. They need a playbook to stand up pilots and scale.\n\nTask / Instruction:\nCreate a playbook covering: use-case selection, data sources (IoT, work orders, telematics), model approach, success metrics, ROI logic, change management, and sustainment (MLOps/CMMS integration).\n\nExemplar (Optional):\nPilot: refuse-truck hydraulic failures. Data: pressure/temperature sensors + work orders. Metric: MTBF\u2191, unplanned downtime\u2193, parts spend\u2193.\n\nConstraints & Rules:\nKeep to 2 pages; call out privacy-by-design for telemetry; include a RACI for operations, data, and IT; specify \u201cstop/go/scale\u201d decision gates.\n\nOutput Format:\nSectioned outline with short bullets plus one summary table: Phase | Activities | Owners | Exit Criteria.",
+      "critical_analysis": "Creates a common blueprint that aligns engineering, IT, and finance so pilots are measured consistently and value can be demonstrated quickly.",
+      "date_added": "2026-03-11",
+      "submitted_by_first": "Forrest",
+      "submitted_by_last": "Pascal",
+      "class": "EMPA '26"
+    },
+    {
+      "id": "023",
+      "title": "Public Communication Plan for AI Transparency",
+      "description": "Increase trust by explaining AI use, safeguards, and complaint channels to residents in accessible language.",
+      "category": "AI Governance",
+      "tags": [
+        "communications",
+        "transparency",
+        "AI policy",
+        "public trust",
+        "plain language",
+        "equity",
+        "model card",
+        "accessibility"
+      ],
+      "output_format": "Two parts: (1) table: Audience | Key Message | Channel | Frequency | Owner | Feedback Method; (2) 6-question FAQ; (3) 6-field model card mini-template",
+      "prompt_text": "Persona / Role:\nYou are a state agency communications director coordinating with the privacy officer and program leads.\n\nContext:\nResidents have raised concerns about surveillance and bias. The agency is launching an information page and outreach campaign.\n\nTask / Instruction:\nProduce a communications plan with objectives, audiences, messages, channels, cadence, and feedback loops. Include a short FAQ and a plain-language model card summary template.\n\nExemplar (Optional):\nFAQ items: \u201cWhat decisions does AI NOT make?\u201d \u201cHow can I appeal a decision?\u201d \u201cWhat data are collected and for how long?\u201d\n\nConstraints & Rules:\n8th-grade reading level; no jargon; avoid proprietary details; include translation and accessibility considerations; limit to one page plus FAQ.\n\nOutput Format:\nTwo parts: (1) table: Audience | Key Message | Channel | Frequency | Owner | Feedback Method; (2) 6-question FAQ; (3) 6-field model card mini-template.",
+      "critical_analysis": "Proactive, plain-language transparency reduces misinformation and provides clear recourse, which is essential for legitimacy and equity.",
+      "date_added": "2026-03-11",
+      "submitted_by_first": "Forrest",
+      "submitted_by_last": "Pascal",
+      "class": "EMPA '26"
+    },
+    {
+      "id": "024",
+      "title": "Ethical AI Procurement\u2014Vendor Evaluation Checklist",
+      "description": "Embed ethical and safety requirements into solicitations and source selections for AI-enabled systems.",
+      "category": "AI Governance",
+      "tags": [
+        "procurement",
+        "vendor evaluation",
+        "AI ethics",
+        "AI safety",
+        "checklist",
+        "source selection",
+        "explainability",
+        "human oversight"
+      ],
+      "output_format": "Table: Category | Evaluation Question | Evidence Expected | Score (1\u20135) | Weight",
+      "prompt_text": "Persona / Role:\nYou are a procurement officer writing an evaluation form for the selection committee.\n\nContext:\nMultiple vendors propose AI features. The committee needs objective criteria for ethics, security, data rights, and lifecycle support.\n\nTask / Instruction:\nCreate a one-page, scoreable checklist with criteria/questions covering: fairness/testing, privacy/security, data use rights, explainability, human oversight, red-teaming, incident handling, and exit strategies.\n\nExemplar (Optional):\nSample item: \u201cProvides parity testing across protected classes and shares results (+documentation)\u201d.\n\nConstraints & Rules:\nScored 1\u20135 with anchors; each item answerable with vendor evidence; include weighting suggestions and a pass/fail gate for minimum safeguards.\n\nOutput Format:\nTable: Category | Evaluation Question | Evidence Expected | Score (1\u20135) | Weight.",
+      "critical_analysis": "Standardized scoring curbs vendor-lock bias, raises baseline safety, and leaves an auditable trail for protests and OIG review.",
+      "date_added": "2026-03-11",
+      "submitted_by_first": "Forrest",
+      "submitted_by_last": "Pascal",
+      "class": "EMPA '26"
+    },
+    {
+      "id": "025",
+      "title": "AI Investment Business Case & ROI Model",
+      "description": "Support capital planning and OMB/finance approvals for AI initiatives with a defendable financial model.",
+      "category": "AI Governance",
+      "tags": [
+        "business case",
+        "ROI",
+        "capital planning",
+        "budget",
+        "financial analysis",
+        "AI investment",
+        "NPV",
+        "sensitivity analysis"
+      ],
+      "output_format": "One summary table (Metric | Value | Assumptions) plus bullet sections for each component; include a simple ROI formula block",
+      "prompt_text": "Persona / Role:\nYou are a senior budget analyst partnering with the innovation office.\n\nContext:\nDepartments request funding for AI pilots and platforms; finance needs a consistent, conservative way to estimate costs and benefits.\n\nTask / Instruction:\nBuild a business-case structure including: problem statement, alternatives analysis, costs (CapEx/OpEx), benefits (tangible/intangible), risk-adjusted ROI, sensitivity analysis, and governance requirements.\n\nExemplar (Optional):\nSensitivity: model adoption rate \u00b120%, productivity delta \u00b110%, cloud cost growth \u00b115%.\n\nConstraints & Rules:\nAssume 5-year horizon; show NPV and breakeven; identify non-financial benefits (equity, safety); keep assumptions explicit and traceable.\n\nOutput Format:\nOne summary table (Metric | Value | Assumptions) plus bullet sections for each component; include a simple ROI formula block.",
+      "critical_analysis": "Creates comparability across proposals and disciplines enthusiasm with transparent assumptions\u2014key for stewardship and credibility.",
+      "date_added": "2026-03-11",
+      "submitted_by_first": "Forrest",
+      "submitted_by_last": "Pascal",
+      "class": "EMPA '26"
+    },
+    {
+      "id": "026",
+      "title": "AI Workforce Planning & Upskilling Roadmap",
+      "description": "Plan skills, roles, and training needed to deploy and govern AI across agencies responsibly.",
+      "category": "AI Governance",
+      "tags": [
+        "workforce development",
+        "upskilling",
+        "AI roles",
+        "training",
+        "change management",
+        "HR",
+        "competency matrix",
+        "MLOps"
+      ],
+      "output_format": "Three artifacts: (1) Role \u00d7 Competency matrix; (2) Gap & Sourcing table; (3) 12-month roadmap with milestones and owners",
+      "prompt_text": "Persona / Role:\nYou are a public-sector workforce strategist collaborating with HR, CIO, and program leaders.\n\nContext:\nAgencies face a skills gap in data engineering, model risk, product management, and change leadership.\n\nTask / Instruction:\nDevelop a role/skill matrix, gap analysis, hiring vs. upskilling decision logic, and a 12-month training roadmap with milestones and metrics.\n\nExemplar (Optional):\nRoles: Product Owner (AI), Data Engineer, ML Engineer, Model Risk Analyst, Prompt Engineer, Privacy Counsel. Metrics: completions, skill assessments, deployment quality KPIs.\n\nConstraints & Rules:\nUse competency levels (Foundational/Working/Advanced); emphasize change management and equity in access to training.\n\nOutput Format:\nThree artifacts: (1) Role \u00d7 Competency matrix; (2) Gap & Sourcing table; (3) 12-month roadmap with milestones and owners.",
+      "critical_analysis": "Aligns people, process, and tech; reduces project risk by ensuring the right skills and accountability exist before scaling.",
+      "date_added": "2026-03-11",
+      "submitted_by_first": "Forrest",
+      "submitted_by_last": "Pascal",
+      "class": "EMPA '26"
     }
   ]
 }
