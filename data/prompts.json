@@ -30,7 +30,8 @@
       "critical_analysis": "Tested across ChatGPT 5.1, Copilot, and Gemini 2.5. Tools initially assigned safety criteria higher baseline weighting based on web searches referencing Vision Zero; a 'do not search the web' constraint was added to address this. Also refined to use placeholders rather than fabricated scores when no data is provided.",
       "date_added": "2025-05-01",
       "submitted_by_first": "Iain",
-      "submitted_by_last": "Crammond"
+      "submitted_by_last": "Crammond",
+      "class": "MPA '26"
     },
     {
       "id": "002",
@@ -56,7 +57,8 @@
       "critical_analysis": "Tested across ChatGPT 5.1, Copilot, and Gemini 2.5. Early outputs were overly bullet-heavy and lacked compelling prose. Revised persona and added a constraint limiting bullet point sections to two, resulting in a better balance of readability and rigor. Outputs are now consistent across tools.",
       "date_added": "2025-05-01",
       "submitted_by_first": "Iain",
-      "submitted_by_last": "Crammond"
+      "submitted_by_last": "Crammond",
+      "class": "MPA '26"
     },
     {
       "id": "003",
@@ -83,7 +85,8 @@
       "critical_analysis": "Tested across ChatGPT 5.1, Copilot, and Gemini 2.5. Gemini initially cited blog articles and product pages rather than scholarly sources. Added a constraint specifying peer-reviewed research or working papers. Also added user-specified journal fields to improve source consistency across tools.",
       "date_added": "2025-05-01",
       "submitted_by_first": "Iain",
-      "submitted_by_last": "Crammond"
+      "submitted_by_last": "Crammond",
+      "class": "MPA '26"
     },
     {
       "id": "004",
@@ -109,7 +112,8 @@
       "critical_analysis": "Tested with DVRPC crash data. Results varied most across tools of all prompts tested \u2014 each tool latched on to a different contributing factor. Added user-specified calculation fields and a rule requiring all contributing factors to be addressed, not just the most prominent. Results will still vary by dataset complexity but outputs are now more bounded.",
       "date_added": "2025-05-01",
       "submitted_by_first": "Iain",
-      "submitted_by_last": "Crammond"
+      "submitted_by_last": "Crammond",
+      "class": "MPA '26"
     },
     {
       "id": "005",
@@ -135,7 +139,8 @@
       "critical_analysis": "Tested with a SEPTA zero-emission bus transition scenario. ChatGPT initially produced a stilted, dry press release while Copilot and Gemini produced more polished drafts. Added language to the task section requiring compelling and engaging writing, which improved ChatGPT output significantly. All tools now produce consistent, usable first drafts.",
       "date_added": "2025-05-01",
       "submitted_by_first": "Iain",
-      "submitted_by_last": "Crammond"
+      "submitted_by_last": "Crammond",
+      "class": "MPA '26"
     },
     {
       "id": "006",
@@ -160,7 +165,8 @@
       "critical_analysis": "Adding 'no teaching experience' to the persona was critical \u2014 without it, the tool assumed professional instructor context. Time allocation across segments was initially uneven; testing and iteration improved pacing. The accessibility notes were a useful addition that the tool incorporated well.",
       "date_added": "2025-05-01",
       "submitted_by_first": "Marshay",
-      "submitted_by_last": "Harris"
+      "submitted_by_last": "Harris",
+      "class": "MA Phil.'26"
     },
     {
       "id": "007",
@@ -185,7 +191,8 @@
       "critical_analysis": "Initial answer key truncated scenarios rather than including them in full. Added explicit instruction to include complete scenario text on the answer key. Tool handled the logical form identification and fallacy examples well with appropriately context-specific military/cadet scenarios.",
       "date_added": "2025-05-01",
       "submitted_by_first": "Marshay",
-      "submitted_by_last": "Harris"
+      "submitted_by_last": "Harris",
+      "class": "MA Phil.'26"
     },
     {
       "id": "008",
@@ -210,7 +217,8 @@
       "critical_analysis": "Output was realistic and appropriately accessible for freshmen. Cases generated relatable moral dilemmas and the Grade 9-10 reading level constraint helped significantly with tone. Reviewer with direct knowledge of the Nicomachean Ethics noted that the material was well-handled for the introductory level.",
       "date_added": "2025-05-01",
       "submitted_by_first": "Marshay",
-      "submitted_by_last": "Harris"
+      "submitted_by_last": "Harris",
+      "class": "MA Phil.'26"
     },
     {
       "id": "009",
@@ -235,7 +243,8 @@
       "critical_analysis": "Small group work time was initially too long for a single stressor \u2014 revised to include two stressors per group segment. Exit ticket generated strong ideas for boosting cadet confidence at lesson close. The prompt required more instructor research than others given the Stoics are less commonly taught.",
       "date_added": "2025-05-01",
       "submitted_by_first": "Marshay",
-      "submitted_by_last": "Harris"
+      "submitted_by_last": "Harris",
+      "class": "MA Phil.'26"
     },
     {
       "id": "010",
@@ -260,7 +269,8 @@
       "critical_analysis": "Kant's complexity made minute-by-minute blocking harder than earlier lessons. Specifying a two-day lesson and Grade 10 reading level with no prior philosophy experience improved output substantially. Still the most difficult lesson of the sequence to generate reliably \u2014 may benefit from additional context about cadet background.",
       "date_added": "2025-05-01",
       "submitted_by_first": "Marshay",
-      "submitted_by_last": "Harris"
+      "submitted_by_last": "Harris",
+      "class": "MA Phil.'26"
     },
     {
       "id": "011",
@@ -285,7 +295,8 @@
       "critical_analysis": "A strong example prompt for the library \u2014 standardized, public-administration focused, and produces reliable outputs when full vendor cost data is provided. Best used when cost breakdowns are attached as a document.",
       "date_added": "2025-05-01",
       "submitted_by_first": "Lucas",
-      "submitted_by_last": "Huan"
+      "submitted_by_last": "Huan",
+      "class": "MPA '26"
     },
     {
       "id": "012",
@@ -309,7 +320,8 @@
       "critical_analysis": "Tested extensively through multiple iterations. The prompt is diagnostic in nature \u2014 it forces leaders to think through their own assumptions when filling in the template. Versatile across policy domains and agency types. The student noted particular pride in this prompt for its modular, self-challenging design.",
       "date_added": "2025-05-01",
       "submitted_by_first": "Lucas",
-      "submitted_by_last": "Huan"
+      "submitted_by_last": "Huan",
+      "class": "MPA '26"
     },
     {
       "id": "013",
@@ -334,7 +346,8 @@
       "critical_analysis": "Strong for scenario generation and structured discussion. Works best when agency mandate and context are clearly provided. As noted in testing, the generated injects may not target the deepest organizational assumptions unless the user has also run the meta-prompt (ID 012) to sharpen the brief first.",
       "date_added": "2025-05-01",
       "submitted_by_first": "Lucas",
-      "submitted_by_last": "Huan"
+      "submitted_by_last": "Huan",
+      "class": "MPA '26"
     },
     {
       "id": "014",
@@ -359,7 +372,8 @@
       "critical_analysis": "Best used when the user already has a clear picture of the problem and needs structured implementation guidance. If the user is still exploring options, a broader scoping prompt should be run first. The equity lens and built-in accessibility requirements are the strongest features of this prompt.",
       "date_added": "2025-05-01",
       "submitted_by_first": "Lucas",
-      "submitted_by_last": "Huan"
+      "submitted_by_last": "Huan",
+      "class": "MPA '26"
     },
     {
       "id": "015",
@@ -384,7 +398,8 @@
       "critical_analysis": "Highly structured and comprehensive. Works best when detailed program information is provided \u2014 the prompt can hallucinate when given minimal context due to its rigid and demanding structure. Most reliable when used similarly to the assignment 2 EV bus scenario where full requirements and assumptions are specified upfront.",
       "date_added": "2025-05-01",
       "submitted_by_first": "Lucas",
-      "submitted_by_last": "Huan"
+      "submitted_by_last": "Huan",
+      "class": "MPA '26"
     },
     {
       "id": "016",
@@ -410,7 +425,8 @@
       "output_format": "Word document titled 'INTERNAL MEMO [public health concern] Response Strategy'",
       "prompt_text": "Persona / Role:\nAct as a [public health administrator] responding to an emerging [health] concern within a government agency. Use a calm, empathetic, accurate, and solutions-oriented voice grounded in [public health] practice. Maintain a professional tone suitable for internal leadership communications.\n\nContext:\nAn emerging [public health] concern has arisen: [concern]. This memo needs to summarize the current situation: [situation overview].\nKnown information includes: [knowns].\nUnknowns and uncertainties include: [unknowns].\nCurrent strategy or response: [strategy].\nNear-term next steps: [next steps].\n\nIf relevant, include operational constraints, affected populations, jurisdictional responsibilities, or external partners: [additional context].\n\nTask / Instruction:\nDraft a one-page internal memo that:\n\u2022 Provides a clear, accurate overview of the situation.\n\u2022 Distinguishes known facts from uncertainties.\n\u2022 Frames risk without inflating it.\n\u2022 Summarizes the team's operational strategy and rationale.\n\u2022 Outlines recommended next steps, including decision points requiring leadership input.\n\u2022 Identifies any equity considerations, communications concerns, or interagency dependencies.\nAddress the memo to [contacts] and copy [copied contacts]. The memo is from [your name, title].\nAdd an AI transparency line at the end indicating the memo was drafted with assistance from AI.\n\nExemplar (Optional):\nN/A\n\nConstraints & Rules:\nThe memo should fit on one page.\nUse accessible language suitable for cross-departmental leadership.\nDo not add outside facts; rely solely on the information provided in the prompt.\n\nOutput Format:\nProduce an editable Word document titled: \"INTERNAL MEMO [public health concern] Response Strategy\".",
       "critical_analysis": "Tested in ChatGPT (prompt refinement), Claude, and Gemini. Key lessons: the prompt is only as strong as the situational inputs provided. Claude generated HTML output that downloaded as a multi-page PDF despite the one-page constraint \u2014 the constraint language was tightened to fix this. The original draft also omitted a 'from' field for the sender; this was added after testing. Final version tested in Gemini with satisfactory results.",
-      "date_added": "2025-05-01"
+      "date_added": "2025-05-01",
+      "class": "MPA '26"
     },
     {
       "id": "017",
@@ -435,7 +451,8 @@
       "output_format": "Email body draft with structured Trend / Evidence / Implications / Notes sections",
       "prompt_text": "Persona / Role:\nAct as a [public health administrator] in a [managerial] role responsible for reviewing analytic summaries before they reach senior leadership. Maintain a professional, concise tone appropriate for internal government communication. Focus on accuracy, clarity, and practical relevance.\n\nContext:\nYou have the attached dataset. Your task is to independently verify the trends originally summarized by a junior analyst. You have limited time and need a clear, defensible interpretation based solely on the data provided. After verification, insights will be communicated to management via email.\n\nTask / Instruction:\nInterpret the dataset and identify 1\u20133 meaningful trends relevant to a [public health] agency.\nFor each trend:\n\u2022 State the trend clearly (e.g., \"Hospitalizations are increasing among adults 65+\").\n\u2022 Describe what in the data supports the trend.\n\u2022 Explain what the trend likely means for residents of [state/jurisdiction] from a [public health] perspective (e.g., service demand, risk level, resource planning).\n\u2022 Note any limitations or uncertainties visible in the dataset (e.g., missing data, short time window, unusual fluctuations).\n\nAfter presenting the trends, briefly describe the analytic steps used so leadership can understand how the conclusions were reached.\n\nExemplar (Optional):\nN/A\n\nConstraints & Rules:\nRely exclusively on the dataset provided in the prompt \u2014 no external facts or assumptions.\nDo not speculate beyond what the data directly supports.\nFlag inconsistencies or data quality concerns.\nKeep the output highly skimmable and decision-oriented.\n\nOutput Format:\nUse this formatting structure for the final output as an email body draft:\nTrend 1: [one-sentence description]\nEvidence: [what in the data supports it]\nImplications: [what it means for the state/jurisdiction]\nNotes/Limitations: [constraints, gaps, caveats]\n\nRepeat for Trends 2 and 3, if applicable.\n\nEnd with a brief section titled \"How the Trends Were Identified\" summarizing the analytic logic.",
       "critical_analysis": "Tested in ChatGPT (refinement) and Gemini with a mock Excel disaster response dataset for easy verification. Claude could not accept .csv or Excel attachments on the free tier. Output format and context were revised to frame results as an email draft to management, which better reflects real-world use. Further testing with complex datasets requiring nuanced statistical analysis is recommended.",
-      "date_added": "2025-05-01"
+      "date_added": "2025-05-01",
+      "class": "MPA '26"
     },
     {
       "id": "018",
@@ -460,7 +477,8 @@
       "output_format": "Word-formatted report (5 pages or fewer) with Executive Summary, Background, Scenario Analysis, Implications, and References",
       "prompt_text": "Persona / Role:\nAct as a [public health administrator] preparing a forward-looking briefing for [senior leadership]. Use a professional tone appropriate for internal government reports. Focus on clarity, methodological transparency, and realistic implications for [population health] and state [health] systems.\n\nContext:\nYou are provided the following emerging trend: [trend].\nBackground data supporting this trend: [data].\nSenior leadership seeks a clear understanding of how the continuation of this trend could affect [public health], [health systems], and government [public health] operations in [state/jurisdiction] over the next five years.\n\nTask / Instruction:\nConduct a scenario analysis based on the trend and data provided.\nProduce three scenarios \u2014 baseline, optimistic, and challenging \u2014 each grounded in explicit assumptions. For each scenario, describe:\n\u2022 Expected impacts on [population health] outcomes.\n\u2022 Expected impacts on [health systems] (workforce, hospitals, public health infrastructure, emergency response).\n\u2022 Equity considerations (who is most affected and how disparities may widen or narrow).\n\u2022 Operational implications for the [health] department (resource needs, partnerships, risk communication, surveillance).\n\nAfter presenting all scenarios, include a short section titled \"How This Scenario Analysis Was Conducted\" explaining the analytic reasoning, the assumptions used, and the limits of what can be inferred.\n\nExemplar (Optional):\nN/A\n\nConstraints & Rules:\nIf referencing outside research, cite it clearly, and rely only on peer-reviewed or widely recognized scientific sources.\nDo not introduce assumptions that conflict with the provided data.\nAvoid false precision \u2014 use ranges and uncertainty notes where appropriate.\nMaintain analytic neutrality; do not advocate for a policy unless requested.\n\nOutput Format:\nProduce the final product as a Word-formatted report (five pages or fewer) with the following structure:\nExecutive Summary\nBackground (trend + data)\nScenario Analysis (baseline \u2192 optimistic \u2192 challenging)\nImplications for [state/jurisdiction]\nHow the Scenario Analysis Was Conducted\nReferences (if applicable)",
       "critical_analysis": "Tested at the Governor's Office level with mock vaccination data in Gemini. Gemini defaulted to Deep Research (opted out for testing). Gemini supplemented weak mock data with credible scientific and academic research, producing a comprehensive analysis \u2014 a feature to be aware of when tighter data boundaries are needed. Prompt should be tightened if less reliance on outside research is desired. Claude could not accept data file attachments on the free tier.",
-      "date_added": "2025-05-01"
+      "date_added": "2025-05-01",
+      "class": "MPA '26"
     },
     {
       "id": "019",
@@ -486,7 +504,8 @@
       "output_format": "One-page double-sided Word briefing titled '[Topic] Brief'",
       "prompt_text": "Persona / Role:\nAct as a [senior public health administrator] serving as a liaison between the [State Department of Health] and the [State Governor's Office]. Maintain a concise, neutral, professional tone suitable for intergovernmental communication. Focus on clarity, accuracy, and policy relevance.\n\nContext:\nYou are preparing briefing materials for the [Governor's Office] that summarizes the attached technical report. The goal is to translate the attached technical report into a short, skimmable briefing that can be understood by non-technical executive staff.\n\nTask / Instruction:\nTransform the technical report into a one-page (double-sided) briefing document that includes:\n\u2022 A plain-language summary of the issue, its significance, and current status.\n\u2022 The 3\u20135 most important insights from the report, written for a non-technical audience.\n\u2022 Implications for [state residents], [state] agencies, and any policy considerations.\n\u2022 A back-page section with contact information and references to the original report.\n\nEnsure the briefing is highly skimmable \u2014 with headers, short paragraphs, and bullet points. Avoid jargon unless defined clearly.\n\nExemplar (Optional):\nN/A\n\nConstraints & Rules:\nDo not add outside information. Base all content solely on the attached technical report unless the prompt includes supplemental material.\nDo not speculate beyond what the report supports.\nPrioritize what senior leadership must know immediately over background detail.\nUse neutral, accessible language that avoids technical complexity.\n\nOutput Format:\nProduce the final output as a one-page (double-sided) Word-format briefing titled: \"[Topic] Brief\".",
       "critical_analysis": "Tested with a 65-page energy economics report, assuming the role of Senior Energy Policy Advisor. Claude generated a strong summary but could not produce a downloadable Word file \u2014 it recommended copy/paste into Word. Gemini had the same limitation. ChatGPT is the recommended tool for this prompt if a directly downloadable Word document is required. Content quality was strong across all three tools.",
-      "date_added": "2025-05-01"
+      "date_added": "2025-05-01",
+      "class": "MPA '26"
     },
     {
       "id": "020",
@@ -513,7 +532,8 @@
       "output_format": "Three separate translated documents with matching structure and an accessibility footer disclaimer",
       "prompt_text": "Persona / Role:\nAct as a [public health communications specialist] preparing multilingual public communications for the [State Department of Health]. Write with a clear, professional tone suitable for statewide public messaging.\n\nContext:\nThe public communication/announcement must be accessible to the diverse residents of [state]. The [Department of Health] needs this English document translated into the top three non-English languages spoken in [state].\n\nTask / Instruction:\nIdentify the top three languages spoken in [state] besides English using the most recent U.S. Census Bureau ACS 5-year estimates or state-published LEP language data.\nTranslate the attached public communication/announcement into those three languages.\nUse established public health terminology in each target language when available; if none exists, choose the clearest non-technical equivalent.\nEnsure translations reflect culturally appropriate phrasing while preserving meaning, tone, and intent.\nMaintain the original structure, sequence, and emphasis of the English document.\n\nExemplar (Optional):\nN/A\n\nConstraints & Rules:\n\u2022 Do not add new content, warnings, or examples not in the English version.\n\u2022 Keep the translations clear and accessible; simplify only to the extent that accuracy is preserved.\n\u2022 Maintain consistency in formatting across all versions.\n\u2022 Use a respectful, community-appropriate tone.\n\nOutput Format:\nProduce three separate translations \u2014 one for each translated language \u2014 using corresponding headings and structure from the English version. Include a footer disclaimer:\n\"This translation is provided for accessibility. The English version is the authoritative text.\"",
       "critical_analysis": "Language identification from Census Bureau data worked correctly across Claude and Gemini. Original prompt attempted to generate translated flyer images \u2014 GenAI tools could not produce these, so the prompt was scoped to text-only translations. In practice, translated text would need to be passed to a design/communications team to apply to the original graphic template. Future iterations may explore AI image generation for this workflow if agency policy permits.",
-      "date_added": "2025-05-01"
+      "date_added": "2025-05-01",
+      "class": "MPA '26"
     }
   ]
 }

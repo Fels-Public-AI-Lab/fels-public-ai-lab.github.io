@@ -372,7 +372,7 @@
                             ${prompt.tags.length > 3 ? `<span class="card-tag">+${prompt.tags.length - 3}</span>` : ''}
                         </div>
                         <div class="card-footer">
-                            <span class="card-author">By ${prompt.submitted_by_first} ${prompt.submitted_by_last}</span>
+                            <span class="card-author">By ${prompt.submitted_by_first} ${prompt.submitted_by_last}${prompt.class ? `, ${prompt.class}` : ''}</span>
                             <div class="card-tools">
                                 ${(prompt.tools_tested || []).slice(0, 2).map(t => `<span class="tool-badge">${t}</span>`).join('')}
                             </div>
@@ -421,7 +421,7 @@
 
             const meta = document.getElementById('modal-meta');
             meta.innerHTML = `
-                <div><strong>Contributor:</strong><br>${prompt.submitted_by_first} ${prompt.submitted_by_last}</div>
+                <div><strong>Contributor:</strong><br>${prompt.submitted_by_first} ${prompt.submitted_by_last}${prompt.class ? `, ${prompt.class}` : ''}</div>
                 <div><strong>Course:</strong><br>${prompt.course || 'N/A'}</div>
                 <div><strong>Tools Tested:</strong><br>${(prompt.tools_tested || []).join(', ')}</div>
                 <div><strong>Output Format:</strong><br>${prompt.output_format || 'N/A'}</div>
